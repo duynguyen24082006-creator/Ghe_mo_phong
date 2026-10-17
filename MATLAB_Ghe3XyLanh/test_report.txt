@@ -1,0 +1,10 @@
+PASS: 12 scientific/numerical test groups
+Runtime version: 9.4.0
+200 random IK-FK round trips; analytical Jacobian vs differences.
+Independent symmetric/eccentric statics; closed-form RPS closure/parasitic motion.
+Independent Lagrange energy and Python dynamic-force regression.
+Full spatial equilibrium and zero virtual power of transverse constraints.
+Trajectory/actuator derivatives; invalid-input rejection; no-person case.
+Euler applicability/NaN preservation; low/nonpositive-pressure-capacity failures.
+Headless default trajectory and simultaneous atmospheric-equivalent flow.
+MATLAB desktop UI/graphics not exercised; no physical chair/valve tested.
