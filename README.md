@@ -11,6 +11,15 @@ Phân tích động học, lực và độ bền sơ bộ cho ghế ba xy lanh k
 - [Kết quả mẫu CSV/MAT](MATLAB_Ghe3XyLanh/ket_qua).
 - [Nhật ký kiểm thử](MATLAB_Ghe3XyLanh/test_report.txt) và [tóm tắt xác minh](verification_summary.json).
 
+## Báo cáo PBL2 — cập nhật phần tính máy nén
+
+- [Toàn bộ báo cáo Word đã sửa mục 3.3](docs/may_nen/PBL2Ghemophong_da_sua_may_nen.docx).
+- [Riêng mục 3.3: tính toán và chọn nguồn khí nén](docs/may_nen/Muc_3_3_Tinh_chon_may_nen_da_sua.docx).
+
+Phần sửa dùng SC63-500 và quỹ đạo MATLAB 0,30 Hz. Kết quả thể tích quét là 122,79 L/phút trung bình và 169,86 L/phút đỉnh, quy về áp khí quyển ở cùng nhiệt độ; lượng khí nạp tăng áp và tiêu chí FAD được trình bày riêng. Chưa có cơ sở xác nhận máy PA-12L 40 L/phút, bình 12 L đáp ứng chế độ này.
+
+Chỉ mục 3.3 của báo cáo PBL2 được thay; phần tính xy lanh và các phần khác giữ nguyên nội dung, còn cần rà soát và đồng bộ. Bộ tham số SC63-500 trong tài liệu cập nhật khác bộ thông số minh họa ban đầu của mã MATLAB trong repository.
+
 ## Chạy trên MATLAB
 
 Mở thư mục MATLAB_Ghe3XyLanh trong MATLAB và chạy:
