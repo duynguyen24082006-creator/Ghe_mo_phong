@@ -7,6 +7,9 @@ function s = ghe3_strength(p, results)
 %   RESULTS.lateralForces is N-by-3: each 3-RPS leg's transverse constraint
 %   reaction along its base revolute-joint axis. If absent, zero is assumed
 %   only for compatibility and a missing-constraint-load warning is emitted.
+%   Optional pneumatic histories provide a pressure-envelope screen with
+%   valve loss and receiver depletion. They do not solve chamber pressures
+%   or establish that an on/off valve tracks the prescribed trajectory.
 %
 %   These calculations are screening calculations, not a certification of
 %   safety. Joint constraints, lateral loads, fatigue, frame load paths,
@@ -118,9 +121,99 @@ s.pneumatic.retractionUtilization = ...
     capacity_ratio(s.design.tension,s.pneumatic.retractionCapacity);
 s.pneumatic.pass = s.pneumatic.extensionUtilization <= 1 & ...
     s.pneumatic.retractionUtilization <= 1;
+s.pneumatic.nominalPass = s.pneumatic.pass;
+s.pneumatic.nominalExtensionUtilization = s.pneumatic.extensionUtilization;
+s.pneumatic.nominalRetractionUtilization = s.pneumatic.retractionUtilization;
+s.pneumatic.runtimePressureAssessed = false;
+s.pneumatic.holdingPressureAssessed = false;
+s.pneumatic.motionTrackingAssessed = false;
+s.pneumatic.airSupplyAssessed = false;
+s.pneumatic.airSupplyFeasible = true; % Legacy compatibility, not an assessment.
 s.pneumatic.status = check_label(s.pneumatic.pass);
 s.pneumatic.note = ['Ideal chamber-pressure thrust reduced by stated efficiency ', ...
     'and friction; check valve flow, dynamic chamber pressures and maker ratings.'];
+
+% Preserve the historical standalone strength API when no air-model fields
+% are present. For new simulations, pressure is an available supply envelope,
+% not a reconstruction of the two actual chamber pressures. In particular a
+% load-driven retraction needs appropriate meter-out pressure control; a
+% fixed exhaust pressure and a reversing valve alone cannot demonstrate it.
+if isfield(results,'workingPressureAvailable')
+    expectedSize = size(results.forces);
+    potentialPressure = pressure_history(results, ...
+        'workingPressureAvailable',expectedSize);
+    if isfield(results,'chamberSupplyPressure')
+        s.pneumatic.inletPressureHistory = pressure_history(results, ...
+            'chamberSupplyPressure',expectedSize);
+    end
+    if isfield(results,'valveTrackingOK')
+        tracking = results.valveTrackingOK;
+        if ~(isnumeric(tracking) || islogical(tracking)) || ...
+                ~isequal(size(tracking),expectedSize) || ...
+                any(~isfinite(tracking(:))) || ...
+                any(tracking(:) ~= 0 & tracking(:) ~= 1)
+            error('ghe3_strength:results', ...
+                'valveTrackingOK must be a logical N-by-3 array.');
+        end
+        % Command/state agreement is a diagnostic, not physical position
+        % tracking and not an extra force-capacity requirement.
+        s.pneumatic.valveTrackingPass = all(logical(tracking),1);
+    end
+    availablePressure = potentialPressure;
+    extension = p.efficiency*(availablePressure*A-p.pExhaust*Aann)-p.friction;
+    retraction = p.efficiency*(availablePressure*Aann-p.pExhaust*A)-p.friction;
+    staticHolding = false(expectedSize);
+    if isfield(results,'velocities')
+        velocity = results.velocities;
+        if ~isnumeric(velocity) || ~isreal(velocity) || ...
+                ~isequal(size(velocity),expectedSize) || any(~isfinite(velocity(:)))
+            error('ghe3_strength:results', ...
+                'results.velocities must be finite real N-by-3 values.');
+        end
+        % A deadband is not proof that the requested nonzero velocity is
+        % static. Only numerically zero reference velocity uses this check.
+        staticHolding = abs(velocity) <= 1e-12;
+        extension(staticHolding) = ...
+            potentialPressure(staticHolding)*A-p.pExhaust*Aann;
+        retraction(staticHolding) = ...
+            potentialPressure(staticHolding)*Aann-p.pExhaust*A;
+    end
+    compression = p.loadFactor*max(results.forces,0);
+    tension = p.loadFactor*max(-results.forces,0);
+    compressionUse = history_capacity_ratio(compression,extension);
+    tensionUse = history_capacity_ratio(tension,retraction);
+    s.pneumatic.runtimePressureAssessed = true;
+    s.pneumatic.availablePressureHistory = availablePressure;
+    s.pneumatic.extensionCapacityHistory = extension;
+    s.pneumatic.retractionCapacityHistory = retraction;
+    s.pneumatic.staticHoldingEnvelopeMask = staticHolding;
+    s.pneumatic.forcePassHistory = compressionUse <= 1 & tensionUse <= 1;
+    s.pneumatic.runtimePass = all(s.pneumatic.forcePassHistory,1);
+    s.pneumatic.extensionUtilization = max(compressionUse,[],1);
+    s.pneumatic.retractionUtilization = max(tensionUse,[],1);
+    % The nominal scalar capacities describe moving-cylinder thrust. Do not
+    % use them to reject an otherwise adequate ideal static holding screen.
+    s.pneumatic.pass = s.pneumatic.runtimePass;
+    s.pneumatic.status = check_label(s.pneumatic.pass);
+    s.pneumatic.note = ['Time-synchronous available-pressure envelope includes ', ...
+        'receiver depletion and valve loss at the requested flow, including ', ...
+        'a potential-pressure check during delayed or closed branches. ', ...
+        'At zero reference velocity an ideal static pressure envelope is used ', ...
+        'without moving-friction or efficiency penalties. Trapped chamber ', ...
+        'pressures, static seal friction, load-driven exhaust control and ', ...
+        'actual on/off-valve trajectory tracking are NOT assessed. A closed ', ...
+        'center has zero modeled supply flow, not a certified mechanical lock.'];
+end
+if isfield(results,'airSupplyOK')
+    supplyOK = results.airSupplyOK;
+    if ~(isnumeric(supplyOK) || islogical(supplyOK)) || ...
+            ~isscalar(supplyOK) || ~isreal(supplyOK) || ~isfinite(supplyOK) || ...
+            (supplyOK ~= 0 && supplyOK ~= 1)
+        error('ghe3_strength:results','results.airSupplyOK must be a logical scalar.');
+    end
+    s.pneumatic.airSupplyAssessed = true;
+    s.pneumatic.airSupplyFeasible = logical(supplyOK);
+end
 
 % Rod stress: time-synchronous envelope of axial stress plus first-order
 % bending. Conservatively place the full transverse constraint reaction at
@@ -268,6 +361,16 @@ s.unassessed = {'Actual joint-axis alignment and distribution of constraint load
     'Failure of supply, hose or valve; mechanical restraints and emergency stop'};
 s.warnings = {s.constraint.note,s.pneumatic.note,s.rod.stressModel,s.rod.bucklingNote, ...
     s.pin.note,s.cylinder.note,s.beam.note};
+if s.pneumatic.runtimePressureAssessed
+    s.unassessed{end+1} = ['Actual trapped chamber pressures in closed center, ', ...
+        'meter-out pressure control during load-driven motion and ', ...
+        'on/off-valve position tracking'];
+end
+if s.pneumatic.airSupplyAssessed && ~s.pneumatic.airSupplyFeasible
+    s.warnings{end+1} = ['AIR SUPPLY SCREEN FAILED: mean flow or receiver ', ...
+        'working-pressure condition is not met. A short receiver-buffered ', ...
+        'trajectory does not prove sustainable operation.'];
+end
 if ~lateralForcesProvided
     s.warnings{end+1} = ['results.lateralForces missing: transverse forces ', ...
         'were set to zero for legacy compatibility; actual 3-RPS side-load ', ...
@@ -290,7 +393,8 @@ end
 s.numericChecksPass = all(s.pneumatic.pass) && all(s.rod.yieldPass) && ...
     all(s.rod.bucklingPass) && all(s.pin.shearPass) && ...
     all(s.pin.bearingPass) && s.cylinder.pass && ...
-    s.cylinder.pressureRatingPass && s.beam.pass;
+    s.cylinder.pressureRatingPass && s.beam.pass && ...
+    s.pneumatic.airSupplyFeasible;
 assessedLimitExceeded = ~all(s.pneumatic.pass) || ~all(s.rod.yieldPass) || ...
     any(s.rod.eulerApplicable & ~s.rod.bucklingPass) || ...
     ~all(s.pin.shearPass) || ~all(s.pin.bearingPass) || ...
@@ -298,6 +402,8 @@ assessedLimitExceeded = ~all(s.pneumatic.pass) || ~all(s.rod.yieldPass) || ...
     (isfinite(s.cylinder.pressureRatingUtilization) && ~s.cylinder.pressureRatingPass);
 if assessedLimitExceeded
     s.status = 'SCREENING LIMIT EXCEEDED: inspect individual checks; critical checks remain';
+elseif s.pneumatic.airSupplyAssessed && ~s.pneumatic.airSupplyFeasible
+    s.status = 'AIR SUPPLY SCREEN FAILED: mean flow or receiver pressure insufficient; critical checks remain';
 elseif ~all(s.rod.eulerApplicable)
     s.status = 'SCREENING INCOMPLETE: rod buckling not assessed; other critical checks remain';
 elseif ~isfinite(s.cylinder.pressureRatingUtilization)
@@ -307,6 +413,25 @@ elseif any(s.rod.secondOrderRequired)
 else
     s.status = 'NUMERIC SCREENS WITHIN LIMITS: manufacturer, global frame and fatigue checks remain';
 end
+end
+
+function pressure = pressure_history(results,name,expectedSize)
+if ~isfield(results,name)
+    error('ghe3_strength:results','results.%s is required.',name);
+end
+pressure = results.(name);
+if ~isnumeric(pressure) || ~isreal(pressure) || ...
+        ~isequal(size(pressure),expectedSize) || ...
+        any(~isfinite(pressure(:))) || any(pressure(:)<0)
+    error('ghe3_strength:results', ...
+        'results.%s must be a finite nonnegative N-by-3 gauge-pressure array.',name);
+end
+end
+
+function ratio = history_capacity_ratio(demand,capacity)
+ratio = Inf(size(demand));
+available = capacity > 0;
+ratio(available) = demand(available)./capacity(available);
 end
 
 function ratio = positive_ratio(numerator,denominator)

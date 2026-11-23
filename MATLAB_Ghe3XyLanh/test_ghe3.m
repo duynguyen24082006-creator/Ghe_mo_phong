@@ -1,6 +1,10 @@
 function test_ghe3()
 % Independent numerical/analytical checks; no MATLAB toolboxes or figures.
-p=ghe3_defaults(); rng(372,'twister'); count=0;
+% Keep the independently derived historical fixture explicit. The public
+% defaults now describe the 1000-mm platform and must not silently change
+% the old force/energy regression's geometry or mass.
+publicDefaults=ghe3_defaults();
+p=legacy_parameters(publicDefaults); rng(372,'twister'); count=0;
 q=[p.h0+0.01;0.05;-0.04];
 [L,J]=ghe3_geometry(q,p); Jfd=zeros(3); epsQ=[1e-6;1e-6;1e-6];
 for j=1:3
@@ -83,7 +87,11 @@ must(max(abs(r.closureResidual(:)))<1e-10,'Revolute plane closure entire traject
 must(max(abs(r.flowAirTotalLpm-sum(r.flowAirLpm,2)))<1e-10,'Concurrent supply flow sum');
 A=pi*p.boreDiameter^2/4; Aa=A-pi*p.rodDiameter^2/4;
 flow=(A*max(r.velocities,0)+Aa*max(-r.velocities,0))*((p.pSupply+p.pAtm)/p.pAtm)*60000;
-must(norm(flow-r.flowAirLpm,'fro')<1e-9,'Gauge-to-absolute flow reference conversion'); count=count+1;
+must(norm(flow-r.idealFlowAirLpm,'fro')<1e-9, ...
+ 'Unmasked swept-flow gauge-to-absolute reference conversion'); count=count+1;
+count=count+test_current_defaults(publicDefaults);
+count=count+test_closed_center_air(publicDefaults);
+count=count+test_pressure_envelope(publicDefaults);
 fprintf('PASS: %d test groups, including 200 random IK-FK poses, independent statics/energy, derivatives, invalid inputs and pressure failure.\n',count);
 logfile=fullfile(fileparts(mfilename('fullpath')),'test_report.txt');
 fid=fopen(logfile,'w');
@@ -97,9 +105,202 @@ if fid>=0
  fprintf(fid,'Trajectory/actuator derivatives; invalid-input rejection; no-person case.\n');
  fprintf(fid,'Euler applicability/NaN preservation; low/nonpositive-pressure-capacity failures.\n');
  fprintf(fid,'Headless default trajectory and simultaneous atmospheric-equivalent flow.\n');
+ fprintf(fid,'Current 1000-mm/120-kg SC63-500 defaults and rear-leg numbering.\n');
+ fprintf(fid,'Closed-center deadband and non-grid-aligned transport delay.\n');
+ fprintf(fid,'Isothermal tank mass balance, exact relay cutoff and starvation rejection.\n');
+ fprintf(fid,'Regulator aliases and time-varying pressure-envelope/static-holding distinctions.\n');
  fprintf(fid,'MATLAB desktop UI/graphics not exercised; no physical chair/valve tested.\n');
  fclose(fid);
 end
+end
+
+function p=legacy_parameters(p)
+% Explicit historical data for independent regressions derived for the
+% original front-leg-1 ordering. New public defaults are tested separately.
+if isfield(p,'legAngles'), p=rmfield(p,'legAngles'); end
+p.rb=0.42; p.rp=0.36; p.baseAngle=0; p.platformAngle=0;
+p.h0=0.48; p.Lmin=0.38; p.stroke=0.20;
+p.massPerson=90; p.massSeat=45; p.mass=135; p.g=9.81;
+p.com=[0;0;0.30]; p.inertia=diag([10 12 8]);
+p.boreDiameter=0.063; p.rodDiameter=0.025;
+p.pSupply=0.60e6;
+if isfield(p,'regulatorPressure'), p.regulatorPressure=p.pSupply; end
+p.pExhaust=0.05e6; p.ratedPressure=0.80e6;
+p.maxPoseAngle=20*pi/180; p.maxJointAngle=20*pi/180;
+p.pinDiameter=0.016; p.beamSpan=0.8; p.beamE=210e9;
+p.ampH=0.02; p.ampRoll=4*pi/180; p.ampPitch=4*pi/180;
+p.frequency=0.30; p.duration=8; p.dt=0.02;
+p=ghe3_validate(p);
+end
+
+function count=test_current_defaults(p)
+count=0;
+must(abs(p.rp-1/sqrt(3))<1e-8 && p.mass==120, ...
+ 'Current defaults use 1000-mm upper triangle and 120-kg total mass');
+must(abs(p.stroke-0.5)<eps && abs(p.rodDiameter-0.020)<eps, ...
+ 'Current defaults use SC63-500 candidate dimensions');
+[L,~,g]=ghe3_geometry([p.h0;0;0],p);
+must(g.A(1,1)<0 && g.A(2,2)>0 && g.A(2,3)<0, ...
+ 'Current numbering: rear 1, front-left 2, front-right 3');
+must(max(abs(L-(p.Lmin+p.stroke/2)))<1e-7, ...
+ 'Current neutral height places the piston at half stroke');
+f=ghe3_forces([p.h0;0;0],zeros(3,1),zeros(3,1),p);
+must(max(abs(f-p.mass*p.g./(3*g.u(3,:)')))<1e-8, ...
+ 'Current defaults satisfy independent symmetric axial statics');
+count=count+1;
+end
+
+function count=test_closed_center_air(p)
+% These are tests of the stated reduced-order inventory/valve model.
+% They do not assert physical position tracking or trapped-chamber holding.
+count=0;
+p.pSupply=0.45e6; p.regulatorPressure=p.pSupply;
+p.tankPressureMax=0.80e6; p.tankPressureCutIn=0.60e6;
+p.tankInitialPressure=p.tankPressureMax;
+p.compressorFlowLpm=40;
+p.valveResponseTime=0.025; p.valveDeadbandSpeed=0.001;
+p=ghe3_validate(p);
+
+t=[0;0.01;0.04;0.1;1.0];
+a=ghe3_air_supply(t,zeros(numel(t),3),p);
+must(all(a.valveState(:)==0) && all(a.valveCommand(:)==0), ...
+ 'Zero velocity commands and retains the closed-center state');
+must(all(a.flowAirLpm(:)==0) && all(a.flowAirDemandLpm(:)==0), ...
+ 'Closed-center zero-speed swept consumption is exactly zero');
+must(max(abs(a.tankPressure-p.tankInitialPressure))<1e-8, ...
+ 'A full tank with no flow retains its pressure');
+check_inventory(a,p); count=count+1;
+
+a=ghe3_air_supply(t,ones(numel(t),3)*0.0009,p);
+must(all(a.valveState(:)==0) && all(a.flowAirLpm(:)==0), ...
+ 'Speeds strictly inside the deadband consume zero swept air');
+count=count+1;
+
+% A 25-ms delay must not be rounded to either 20 ms or 30 ms internally.
+% These sample states distinguish it from a rounded 20-ms implementation.
+t=(0:0.01:0.1)';
+a=ghe3_air_supply(t,ones(numel(t),3)*0.01,p);
+must(all(a.valveCommand(:)==1), ...
+ 'A positive requested speed commands extension');
+must(all(all(a.valveState(1:3,:)==0)) && all(a.valveState(4,:)==1), ...
+ '25-ms pure transport delay is respected on a 10-ms observation grid');
+must(all(ismember(a.valveState(:),[-1 0 1])), ...
+ 'Valve states remain discrete -1/0/+1');
+check_inventory(a,p); count=count+1;
+
+% Independent analytic filling volume. The switch-off event is between
+% sample times; clipping pressure without recording accepted inflow fails.
+fill=p; fill.tankInitialPressure=0.59e6; fill.airTimeStep=60;
+t=[0;20;40;60];
+a=ghe3_air_supply(t,zeros(numel(t),3),fill);
+expectedVolumeL=(fill.tankPressureMax-fill.tankInitialPressure)* ...
+ fill.tankVolume*1000/fill.pAtm;
+must(abs(a.tankPressure(end)-fill.tankPressureMax)<1e-7, ...
+ 'Compressor switches off at the exact maximum-pressure event');
+must(abs(a.tankInflowVolumeL(end)-expectedVolumeL)<1e-8, ...
+ 'Accepted compressor volume agrees with the ideal-gas filling solution');
+must(all(a.tankPressure<=fill.tankPressureMax+1e-7), ...
+ 'Relay cutoff never silently overfills the receiver');
+check_inventory(a,fill); count=count+1;
+
+% A receiver can reach its minimum at an internal relay event and recover
+% before the next output sample. Reporting min(tankPressure) misses it.
+dip=p; dip.valveResponseTime=0; dip.valveDeadbandSpeed=0;
+dip.pSupply=0.58e6; dip.regulatorPressure=dip.pSupply;
+dip.regulatorHeadroom=0.0200005e6;
+dip.tankInitialPressure=dip.tankPressureCutIn+1;
+dip.valveRatedFlowLpm=1e9; dip.airTimeStep=1;
+area=pi*dip.boreDiameter^2/4;
+speed=(30/60000)/(3*area*(dip.pSupply+dip.pAtm)/dip.pAtm);
+a=ghe3_air_supply([0;1],ones(2,3)*speed,dip);
+must(abs(a.minTankPressure-dip.tankPressureCutIn)<1e-6 && ...
+ min(a.tankPressure)>a.minTankPressure+0.5, ...
+ 'Tank minimum includes an interior relay event between output samples');
+must(~a.airTankPressureOK, ...
+ 'An internal pressure dip cannot falsely pass the regulator headroom check');
+check_inventory(a,dip); count=count+1;
+
+% Independent constant-demand solution: the regulator remains supplied,
+% so credited swept flow is constant and dp/dt is constant when Qc=0.
+drain=p; drain.compressorFlowLpm=0; drain.valveResponseTime=0;
+t=[0;0.4;1.1;2];
+a=ghe3_air_supply(t,ones(numel(t),3)*0.01,drain);
+q=sum(a.flowAirLpm(1,:));
+must(q>0 && max(abs(sum(a.flowAirLpm,2)-q))<1e-9, ...
+ 'Supplied constant-speed demand has constant atmospheric-equivalent flow');
+expected=drain.tankInitialPressure-drain.pAtm/drain.tankVolume* ...
+ (q/60000)*(t-t(1));
+must(max(abs(a.tankPressure-expected))<1e-6, ...
+ 'Receiver pressure follows the analytic constant-demand balance with L/min conversion');
+check_inventory(a,drain); count=count+1;
+
+% A small emptying receiver must not become feasible because delivered
+% flow vanishes. Required flow and unserved inventory remain observable.
+starve=p; starve.compressorFlowLpm=0; starve.valveResponseTime=0;
+starve.tankInitialPressure=0.1e6; starve.tankVolume=1e-5;
+starve.regulatorHeadroom=0;
+t=(0:0.1:2)';
+a=ghe3_air_supply(t,ones(numel(t),3)*0.03,starve);
+must(~a.airSupplyOK && a.averageAirDemandLpm>0, ...
+ 'Starvation cannot be accepted merely because actual admitted flow is small');
+must(all(a.tankPressure>=-1e-7) && a.tankUnservedVolumeL(end)>0, ...
+ 'Receiver floor accounts for unserved volume instead of losing mass');
+check_inventory(a,starve); count=count+1;
+
+% Likewise, all-closed valves cannot make a finite prescribed displacement
+% free. The mismatch travel must fail the requested-motion proxy limit.
+blocked=p; blocked.valveDeadbandSpeed=0.02;
+t=(0:0.1:2)';
+a=ghe3_air_supply(t,ones(numel(t),3)*0.01,blocked);
+must(all(a.flowAirLpm(:)==0) && ~a.valveTrackingFeasible && ~a.airSupplyOK, ...
+ 'Deadband cannot fabricate a feasible zero-air moving trajectory');
+count=count+1;
+
+bad=p; bad.tankVolume=0; must_throws(@() ghe3_validate(bad));
+bad=p; bad.valveResponseTime=-0.001; must_throws(@() ghe3_validate(bad));
+bad=p; bad.tankPressureCutIn=bad.tankPressureMax; must_throws(@() ghe3_validate(bad));
+bad=p; bad.compressorFlowLpm=-1; must_throws(@() ghe3_validate(bad));
+count=count+1;
+
+% Either public spelling is editable after validation, but two conflicting
+% edits must not silently choose the higher pressure and fabricate thrust.
+alias=p; alias.pSupply=0.55e6; alias=ghe3_validate(alias);
+must(alias.regulatorPressure==0.55e6, ...
+ 'Editing pSupply synchronizes an otherwise untouched regulatorPressure');
+alias=p; alias.regulatorPressure=0.50e6; alias=ghe3_validate(alias);
+must(alias.pSupply==0.50e6, ...
+ 'Editing regulatorPressure synchronizes an otherwise untouched pSupply');
+bad=p; bad.pSupply=0.55e6; bad.regulatorPressure=0.50e6;
+must_throws(@() ghe3_validate(bad)); count=count+1;
+end
+
+function count=test_pressure_envelope(p)
+% Supply depletion must reduce the force screen even when the scalar
+% regulator setting remains high. Static holding is not moving thrust.
+rr=struct('forces',ones(2,3)*230, ...
+ 'lengths',ones(2,3)*(p.Lmin+p.stroke/2),'qdd',zeros(2,3), ...
+ 'velocities',ones(2,3)*0.01,'workingPressureAvailable',ones(2,3)*0.10e6);
+s=ghe3_strength(p,rr);
+must(all(s.pneumatic.nominalPass) && all(~s.pneumatic.pass), ...
+ 'Low available pressure fails runtime force capacity despite high nominal setting');
+rr.workingPressureAvailable(:)=0.15e6;
+sMoving=ghe3_strength(p,rr);
+rr.velocities(:)=0;
+sHolding=ghe3_strength(p,rr);
+must(all(~sMoving.pneumatic.pass) && all(sHolding.pneumatic.pass), ...
+ 'Ideal static holding envelope is distinct from moving-friction thrust');
+must(~sHolding.pneumatic.holdingPressureAssessed, ...
+ 'A static capacity envelope is not a solved trapped-chamber holding state');
+count=1;
+end
+
+function check_inventory(a,p)
+% Compare state inventory with independently accumulated normalized volumes.
+change=a.tankPressure-a.tankPressure(1);
+volumeBalance=p.pAtm/(p.tankVolume*1000)* ...
+ (a.tankInflowVolumeL-a.tankOutflowVolumeL);
+must(max(abs(change-volumeBalance))<1e-6, ...
+ 'Tank mass is conserved, including relay events and supply-floor events');
 end
 
 function Q=lagrange_force(q,v,a,p)

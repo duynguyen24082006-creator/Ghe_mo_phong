@@ -10,6 +10,7 @@ ph=q(2); th=q(3); cx=cos(ph); sx=sin(ph); cy=cos(th); sy=sin(th);
 Rx=[1 0 0;0 cx -sx;0 sx cx]; Ry=[cy 0 sy;0 1 0;-sy 0 cy];
 dRx=[0 0 0;0 -sx -cx;0 cx -sx]; dRy=[-sy 0 cy;0 0 0;-cy 0 -sy];
 angles=(0:2)*2*pi/3;
+if isfield(p,'legAngles'), angles=reshape(p.legAngles,1,3); end
 alpha=angles+p.baseAngle;
 B=p.rb*[cos(alpha);sin(alpha);zeros(1,3)];
 A=p.rp*[cos(angles+p.platformAngle);sin(angles+p.platformAngle);zeros(1,3)];

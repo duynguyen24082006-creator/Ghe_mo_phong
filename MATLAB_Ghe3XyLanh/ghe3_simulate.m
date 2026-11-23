@@ -22,21 +22,32 @@ for k=1:n
  strokeOK(k)=all(Lk>=p.Lmin & Lk<=p.Lmin+p.stroke);
  jointsOK(k)=all(g.baseJointAngle<=p.maxJointAngle) && all(g.topJointAngle<=p.maxJointAngle);
  conditionOK(k)=g.condition<=p.maxCondition && g.constraintCondition<=p.maxCondition;
- [fki,info]=ghe3_fk(Lk,p,fki); fkOK(k)=info.converged;
- fkError(k)=norm([fki(1)-q(k,1);p.rp*(fki(2:3)-q(k,2:3)')]);
+ if p.computeFK
+  [fki,info]=ghe3_fk(Lk,p,fki); fkOK(k)=info.converged;
+  fkError(k)=norm([fki(1)-q(k,1);p.rp*(fki(2:3)-q(k,2:3)')]);
+ else
+  fkError(k)=NaN;
+ end
 end
-A=pi*p.boreDiameter^2/4; Aa=A-pi*p.rodDiameter^2/4;
-flowSupply=A*max(v,0)+Aa*max(-v,0);
-% Equal-temperature atmospheric-equivalent volume, not standard Nl unless Tref=T.
-flowAirLpm=flowSupply*(p.pSupply+p.pAtm)/p.pAtm*60000;
+air=ghe3_air_supply(t,v,p);
 r=struct('p',p,'t',t,'q',q,'qd',qd,'qdd',qdd,'lengths',L, ...
  'velocities',v,'accelerations',a,'forces',f,'condition',conds,'passiveCondition',passiveConds, ...
  'constraintWrench',cw,'constraintResidual',cr,'lateralForces',lateral, ...
  'passive',passive,'baseMomentMagnitude',baseMoment,'equilibriumResidual',eqResidual, ...
  'closureResidual',closure,'strokeOK',strokeOK,'jointsOK',jointsOK, ...
  'conditionOK',conditionOK,'speedOK',all(abs(v)<=p.maxSpeed,2), ...
- 'flowChamberM3s',flowSupply,'flowAirLpm',flowAirLpm, ...
- 'flowAirTotalLpm',sum(flowAirLpm,2),'fkError',fkError,'fkOK',fkOK);
-r.workspace=ghe3_workspace(p);
+ 'fkError',fkError,'fkOK',fkOK,'air',air);
+% Top-level aliases preserve convenient access and portable CSV exports.
+names=fieldnames(air);
+for k=1:numel(names)
+ if ~strcmp(names{k},'warnings'),r.(names{k})=air.(names{k});end
+end
+if p.computeWorkspace
+ r.workspace=ghe3_workspace(p);
+else
+ r.workspace=struct('data',zeros(0,9),'feasible',false(0,1),'tested',0, ...
+  'accepted',0,'fraction',NaN,'sampledOnly',true, ...
+  'columns','h_m,roll_rad,pitch_rad,stroke_ok,joints_ok,condition_ok,pose_ok,condition_scaled,passive_constraint_condition_scaled');
+end
 r.strength=ghe3_strength(p,r);
 end

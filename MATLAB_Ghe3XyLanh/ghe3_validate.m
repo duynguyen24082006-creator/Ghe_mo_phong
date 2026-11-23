@@ -1,5 +1,6 @@
 function p = ghe3_validate(p)
 % Validate parameters without silently clipping unsafe/meaningless values.
+p=ghe3_air_defaults(p);
 positive = {'rb','rp','h0','Lmin','stroke','massSeat','g', ...
  'duration','dt','frequency','boreDiameter','rodDiameter','pSupply','pAtm', ...
  'ratedPressure','maxSpeed','maxJointAngle','maxPoseAngle','maxCondition','loadFactor', ...
@@ -64,4 +65,54 @@ if ~isscalar(p.baseAngle)||~isfinite(p.baseAngle)||~isscalar(p.platformAngle)||~
  error('ghe3:parameter','Triangle angle offsets must be finite scalars.');
 end
 p.mass=p.massPerson+p.massSeat;
+airPositive={'valveRatedFlowLpm','valveRatedInletPressure', ...
+ 'valveRatedPressureDrop','valveMaxPressureDrop','valveMaxTrackingError', ...
+ 'tankVolume','tankPressureMax','tankPressureCutIn','regulatorPressure','airTimeStep'};
+airNonnegative={'valveDeadbandSpeed','valveResponseTime','compressorFlowLpm', ...
+ 'tankInitialPressure','regulatorHeadroom'};
+for k=1:numel(airPositive)
+ v=p.(airPositive{k});
+ if ~isnumeric(v)||~isscalar(v)||~isreal(v)||~isfinite(v)||v<=0
+  error('ghe3:airParameter','%s must be a finite positive scalar.',airPositive{k});
+ end
+end
+for k=1:numel(airNonnegative)
+ v=p.(airNonnegative{k});
+ if ~isnumeric(v)||~isscalar(v)||~isreal(v)||~isfinite(v)||v<0
+  error('ghe3:airParameter','%s must be a finite nonnegative scalar.',airNonnegative{k});
+ end
+end
+if ~ischar(p.valveType)||~strcmp(p.valveType,'5/3_CLOSED_CENTER')
+ error('ghe3:valveType','Supported valveType is 5/3_CLOSED_CENTER.');
+end
+if ~isnumeric(p.valveCriticalRatio)||~isscalar(p.valveCriticalRatio)|| ...
+ ~isreal(p.valveCriticalRatio)||~isfinite(p.valveCriticalRatio)|| ...
+ p.valveCriticalRatio<=0||p.valveCriticalRatio>=1
+ error('ghe3:airParameter','valveCriticalRatio must lie strictly in (0,1).');
+end
+if ~isnumeric(p.compressorMaxDuty)||~isscalar(p.compressorMaxDuty)|| ...
+ ~isreal(p.compressorMaxDuty)||~isfinite(p.compressorMaxDuty)|| ...
+ p.compressorMaxDuty<=0||p.compressorMaxDuty>1
+ error('ghe3:airParameter','compressorMaxDuty must lie in (0,1].');
+end
+if p.tankPressureCutIn>=p.tankPressureMax||p.tankInitialPressure>p.tankPressureMax
+ error('ghe3:airParameter','Require cut-in < cut-out and initial pressure <= cut-out.');
+end
+if p.valveRatedPressureDrop>=p.valveRatedInletPressure
+ error('ghe3:airParameter','Valve reference outlet gauge pressure must be positive.');
+end
+for name={'computeWorkspace','computeFK'}
+ v=p.(name{1});
+ if ~(islogical(v)||isnumeric(v))||~isscalar(v)||~isreal(v)||~isfinite(v)||~any(v==[0 1])
+  error('ghe3:airParameter','%s must be logical true or false.',name{1});
+ end
+ p.(name{1})=logical(v);
+end
+if isfield(p,'legAngles')
+ v=p.legAngles;
+ if ~isnumeric(v)||numel(v)~=3||~isreal(v)||any(~isfinite(v(:)))
+  error('ghe3:parameter','legAngles must contain three finite real angles.');
+ end
+ p.legAngles=reshape(v,1,3);
+end
 end
