@@ -2,6 +2,15 @@
 
 Phân tích động học, lực và độ bền sơ bộ cho ghế ba xy lanh khí nén bố trí tam giác đều, đầu trên khớp cầu S và đầu dưới khớp xoay R.
 
+## Bản hoàn thiện 5 chương — 3 bar, 0,09 Hz
+
+- [Tải báo cáo Word đủ 5 chương](downloads/PBL2_5_chuong_3bar_009Hz_bo_tri_CA.docx).
+- [Tải gói MATLAB, kết quả và hình minh họa](downloads/MATLAB_PBL2_CA_3bar_009Hz.zip).
+
+Bán kính khớp đế 420 mm; bán kính khớp trên giả định 360 mm. Cạnh ngoài khung đế 1000 mm. Bộ mã dùng áp cấp 3 bar dư và tần số 0,09 Hz. Giải nén ZIP rồi chạy `study = pbl2_chuong4(true);`.
+
+Đã qua 31 nhóm kiểm thử bằng GNU Octave 9.4.0; dùng API hướng tới MATLAB R2017b, chưa chạy trực tiếp trên R2017b. Số liệu thực đo để trống; quỹ đạo yêu cầu không phải chuyển động thực đã được kiểm chứng. Các tệp bên dưới thuộc những phiên bản trước.
+
 ## Các tệp
 
 - [Báo cáo Word](Bao_cao_Dong_hoc_Do_ben_Ghe_3RPS.docx): công thức, đối chiếu tám tài liệu tham khảo, ví dụ tính và giới hạn áp dụng.
