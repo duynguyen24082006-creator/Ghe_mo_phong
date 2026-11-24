@@ -1,0 +1,46 @@
+{
+  "source": "shapr3d_export_2026-10-19_07h47m.step",
+  "unit": "mm",
+  "solid_count": 77,
+  "overall_xyz_mm": [
+    783.5703241280016,
+    904.211449951,
+    874.0
+  ],
+  "axis_centers_xy_mm": [
+    [
+      -1943.250002026,
+      872.313120644
+    ],
+    [
+      -1250.429677506,
+      472.31312169
+    ],
+    [
+      -1943.250000374,
+      72.313119874
+    ]
+  ],
+  "axis_triangle_sides_mm": [
+    800.0000007694988,
+    800.0000007698249,
+    800.00000077
+  ],
+  "axis_circle_radius_mm": 461.8802157961012,
+  "pin_z_mm": [
+    64,
+    803.5
+  ],
+  "current_pin_center_distance_mm": 739.5,
+  "frame_vertical_size_mm": 30,
+  "corner_plate_thickness_mm": 3,
+  "not_confirmed": [
+    "Lmin",
+    "stroke",
+    "rated cylinder model",
+    "manufacturing tolerances",
+    "joint fit suitability",
+    "neutral operating pose"
+  ],
+  "source_sha256": "ba520996e15dc7b319664f528d4db774847a61c9d4a9bc17e6edca752ef7a8e8"
+}
