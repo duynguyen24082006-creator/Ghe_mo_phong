@@ -1,0 +1,7 @@
+Geometry only: rb=rp 0.461880216 m; Lcad 0.739500 m. C1/C2/C3 are CAD labels.
+    functionTestGroupsPassed = 9
+    SimulinkTested = 0
+    SolidWorksExportTested = 0
+    strokeConfirmed = 0
+    hardwareValidated = 0
+error: ignoring const execution_exception& while preparing to exit
