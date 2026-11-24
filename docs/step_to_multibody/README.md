@@ -163,6 +163,16 @@ Lmin, stroke và cạnh ngoài khung trong bản sao được đặt NaN **có c
 
 COM/quán tính/khối lượng kế thừa chỉ để cấu trúc có đủ trường; chưa coi động lực học đã nhận dạng theo CAD.
 
+Nếu tái sử dụng model tham khảo trước (`ghe3_driver_reference`), hàm `ghe3_reference_ik` đọc biến Base Workspace tên `ghe3_reference_parameters`. Chỉ tạo `pCAD` chưa đổi biến này. Sau khi đã điền/xác nhận các trường còn thiếu và validate thành công, mới gán:
+
+```matlab
+% Chỉ thực hiện sau khi Lmin/stroke/cạnh khung và các giới hạn đã xác nhận:
+pCAD = ghe3_validate(pCAD);
+assignin('base','ghe3_reference_parameters',pCAD);
+```
+
+`ghe3_reference_init` tạo lại bộ mặc định cũ, nên nếu cần dùng để tạo tín hiệu mẫu thì chạy nó TRƯỚC bước gán trên. Kiểm InitFcn/PreLoadFcn để không bị reset lại thông số cũ khi nhấn Run. `assignin` vào Model Workspace cũng không tự thay một hàm đang dùng `evalin('base',...)`; chọn một nguồn tham số nhất quán.
+
 ### 5.2 Vì sao không cần sửa tay công thức Jacobi?
 
 Vòng kín và đạo hàm được tính lại từ geometry parameters:
