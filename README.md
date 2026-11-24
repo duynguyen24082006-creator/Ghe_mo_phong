@@ -2,6 +2,15 @@
 
 Phân tích động học, lực và độ bền sơ bộ cho ghế ba xy lanh khí nén bố trí tam giác đều, đầu trên khớp cầu S và đầu dưới khớp xoay R.
 
+## Hướng dẫn MATLAB/Simulink và mô hình tham khảo mới
+
+- [Đọc hướng dẫn từng bước trên web](docs/simulink_reference/HUONG_DAN_MATLAB_SIMULINK.md).
+- [Tải ZIP hướng dẫn và mô hình tham khảo](downloads/Ghe3_HuongDan_Simulink_ThamKhao_R2017b.zip).
+- [File Simulink MDL tham khảo](docs/simulink_reference/ghe3_ik_reference.mdl).
+- [Script tạo hai model SLX trên MATLAB](docs/simulink_reference/build_ghe3_reference.m).
+
+Chạy `ghe3_reference_init` trước khi mở model. Ví dụ gồm động học ngược, tín hiệu bàn đạp/vô lăng và logic van 5/3. Đây là hướng dẫn và mô hình tham khảo mới, chưa phải mô hình khí nén vòng kín đầy đủ. Đã qua 9 nhóm kiểm tra hàm bằng Octave; chưa mở/compile bằng MATLAB/Simulink. Xem [phạm vi kiểm tra](docs/simulink_reference/VALIDATION.md).
+
 ## Bản hoàn thiện 5 chương — 3 bar, 0,09 Hz
 
 - [Tải báo cáo Word đủ 5 chương](downloads/PBL2_5_chuong_3bar_009Hz_bo_tri_CA.docx).
