@@ -1,0 +1,3 @@
+Extended checks saved; no actual coupled motion solved.
+PORTABLE EXTENDED CHECKS PASS
+error: ignoring const execution_exception& while preparing to exit

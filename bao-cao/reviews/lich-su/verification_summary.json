@@ -1,0 +1,11 @@
+{
+  "word_bytes": 834322,
+  "matlab_zip_bytes": 276989,
+  "word_math_objects": 92,
+  "word_images": 3,
+  "matlab_m_files": 14,
+  "tests": "12 groups PASS in GNU Octave 9.4.0",
+  "trajectory_rows": 401,
+  "workspace_rows": 729,
+  "input_console": "75 kg person -> 120kg total: PASS"
+}

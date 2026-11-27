@@ -1,0 +1,104 @@
+Model {
+  Name "ghe3_ik_reference"
+  Version 8.9
+  Solver "ode4"
+  SolverType "Fixed-step"
+  FixedStep "0.01"
+  StopTime "22.2222222222"
+  System {
+    Name "ghe3_ik_reference"
+    Location [50, 50, 900, 500]
+    Block {
+      BlockType Sin
+      Name "Heave"
+      Position [40, 40, 105, 75]
+      Amplitude ".02"
+      Bias "ghe3_reference_parameters.h0"
+      Frequency "2*pi*.09"
+      Phase "0"
+      SampleTime "0"
+    }
+    Block {
+      BlockType Sin
+      Name "Roll"
+      Position [40, 125, 105, 160]
+      Amplitude "4*pi/180"
+      Bias "0"
+      Frequency "2*pi*.09"
+      Phase "pi/2"
+      SampleTime "0"
+    }
+    Block {
+      BlockType Sin
+      Name "Pitch"
+      Position [40, 210, 105, 245]
+      Amplitude "4*pi/180"
+      Bias "0"
+      Frequency "2*pi*.09"
+      Phase "0"
+      SampleTime "0"
+    }
+    Block {
+      BlockType Mux
+      Name "Pose"
+      Position [175, 40, 180, 245]
+      Inputs "3"
+    }
+    Block {
+      BlockType MATLABFcn
+      Name "InverseKinematics"
+      Position [245, 120, 440, 165]
+      MATLABFcn "ghe3_reference_ik(u)"
+      OutputDimensions "3"
+    }
+    Block {
+      BlockType Scope
+      Name "RequiredLengths"
+      Position [515, 95, 595, 140]
+    }
+    Block {
+      BlockType ToWorkspace
+      Name "LengthLog"
+      Position [490, 200, 650, 245]
+      VariableName "ghe3_L_reference"
+      SaveFormat "Structure With Time"
+      MaxDataPoints "inf"
+    }
+    Line {
+      SrcBlock "Heave"
+      SrcPort 1
+      DstBlock "Pose"
+      DstPort 1
+    }
+    Line {
+      SrcBlock "Roll"
+      SrcPort 1
+      DstBlock "Pose"
+      DstPort 2
+    }
+    Line {
+      SrcBlock "Pitch"
+      SrcPort 1
+      DstBlock "Pose"
+      DstPort 3
+    }
+    Line {
+      SrcBlock "Pose"
+      SrcPort 1
+      DstBlock "InverseKinematics"
+      DstPort 1
+    }
+    Line {
+      SrcBlock "InverseKinematics"
+      SrcPort 1
+      Branch {
+        DstBlock "RequiredLengths"
+        DstPort 1
+      }
+      Branch {
+        DstBlock "LengthLog"
+        DstPort 1
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+3-RPS: bottom R axes tangent to base circle; upper spherical joints.
+Tangential R-axis orientation is assumed and requires drawing confirmation.
+SCREENING INCOMPLETE: rod buckling not assessed; other critical checks remain
+Rod 1: NOT ASSESSED: Euler outside slender-rod applicability
+Rod 2: NOT ASSESSED: Euler outside slender-rod applicability
+Rod 3: NOT ASSESSED: Euler outside slender-rod applicability
+
+NOT ASSESSED:
+- Actual joint-axis alignment and distribution of constraint loads
+- Cylinder manufacturer side-load and rod/tube/piston guide-bearing capacities
+- Manufacturer force, pressure, side-load and speed ratings
+- Global three-dimensional frame, joints, welds and foundations
+- Fatigue life and stress concentration
+- Pneumatic compressibility, valve flow and pressure transients
+- Failure of supply, hose or valve; mechanical restraints and emergency stop
+
+NOTES:
+- 3-RPS transverse constraint reactions are included in pin resultants and a conservative exposed-rod bending screen. The actual rod/tube/piston-bearing load distribution and manufacturer side-load limits have NOT been assessed.
+- Ideal chamber-pressure thrust reduced by stated efficiency and friction; check valve flow, dynamic chamber pressures and maker ratings.
+- Time-envelope axial + eccentric bending + transverse end-load cantilever bending on the full exposed rod; first-order only. Actual cylinder side-load/guide-bearing capacity is NOT validated.
+- Euler is an ideal elastic column screen. The fy-based slenderness boundary is approximate; verify proportional limit, end fixity, manufacturer buckling data and inelastic/second-order behavior separately.
+- Uses joint resultant sqrt(axial^2 + transverse^2). Uniform pure shear and projected bearing only; verify unequal plate loading, pin bending, axial pin thrust, lug net section, edge tear-out and joint ratings.
+- Ideal closed-end wall at supply gauge pressure only; check pressure peaks, caps, threads, seals, ports and certified maker pressure rating. Any example rating must be replaced by the actual manufacturer rating.
+- Illustrative beam bending only. No pass claim for the whole frame; real support positions, eccentric loads, torsion, welds, local buckling and deflection limits require a structural model.
+- Some rods are outside Euler applicability: buckling has NOT been assessed; use an appropriate inelastic method or maker data.
+Flow is atmospheric-equivalent L/min at equal temperatures; no initial/dead-volume filling, leakage or exhaust-valve sizing.
+Workspace is a sampled geometric grid, not a certified continuous envelope.
+Trajectory is an offline periodic benchmark with no start/stop ramp.

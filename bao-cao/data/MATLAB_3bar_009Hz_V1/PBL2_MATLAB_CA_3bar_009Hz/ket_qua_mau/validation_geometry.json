@@ -1,0 +1,67 @@
+{
+  "runtime": "GNU Octave 9.4.0",
+  "matlab_target": "R2017b API compatibility; not directly executed on MATLAB R2017b",
+  "geometry": {
+    "frame_outer_side_m": 1.0,
+    "lower_anchor_radius_m": 0.42,
+    "upper_anchor_radius_assumed_m": 0.36,
+    "upper_anchor_side_m": 0.6235382907247957,
+    "neutral_height_m": 0.9791634184343285,
+    "neutral_body_lean_deg": 3.506517540593342,
+    "lower_pin_axes": "horizontal tangents; cylinders rotate around them",
+    "upper_plate_outline_known": false,
+    "fixed_rod_clocking_verified": false
+  },
+  "tests": {
+    "core_test_groups_passed": 31,
+    "layout_and_jacobian_checks": "PASS",
+    "four_scenarios_and_full_event_average": "PASS",
+    "portable_extended_reproduction": "PASS"
+  },
+  "periodic": {
+    "frequency_Hz": 0.09,
+    "mean_required_Lpm": 23.019547223177135,
+    "mean_credited_Lpm": 22.952701327948652,
+    "peak_required_Lpm": 25.866354518864792,
+    "peak_speed_mps": 0.02547518220690563,
+    "force_min_N": 358.7972784111428,
+    "force_max_N": 427.98780376176865,
+    "actual_motion_solved": false,
+    "trajectory_achieved": null,
+    "air_resource_screen_ok": true,
+    "structural_scope_status": "SCREENING INCOMPLETE: rod buckling not assessed; other critical checks remain"
+  },
+  "longrun": {
+    "duration_s": 120,
+    "minimum_tank_gauge_Pa": 600000.0,
+    "mass_balance_max_residual_Pa": 1.2514647096395493e-08
+  },
+  "source_m_files": 25,
+  "sha256_m_files": {
+    "ghe3_air_defaults.m": "56bc3a9b456fec78140bfbb6649832ef190090603850813e21fcef4bbf8d7e71",
+    "ghe3_air_supply.m": "e616cbbe97a7381b8623aff07593f4ebc61c151f288fb4f3ad145f021aec1dc6",
+    "ghe3_assembly_diagnostics.m": "9f1eb5aec521dc9e176a8b3343a91d32a6b3af103beaccde8360b6c0e75b0951",
+    "ghe3_defaults.m": "418a1618d9cfeff9c0f9c74f2285552037f38bd32072301bc47bbd115c8f3e3a",
+    "ghe3_export.m": "562d91b2e318ef04f9d92a276f43faff36c489b210999c8754790e09b71d8746",
+    "ghe3_fk.m": "c91cf1eb8f4b38abec023a9ee42e159ed2254cce874510a41223f81cb88f8d47",
+    "ghe3_forces.m": "c2fa0a935a71e09b4b31f1d02ca0dbc98b22e14dcaec1783ad752b80242e46db",
+    "ghe3_geometry.m": "eb62a184291bfaffc092580179898a75d4f605d71116c4a509cb66dac893f510",
+    "ghe3_input.m": "0cbe71c93f88ca87ba8247ab6e81a1e52c4ec2b87d9f6340bbbc46c6c437d420",
+    "ghe3_layout.m": "9df5a09af6c363ed8dba92adacc1763b4c00c94c54bf3b28074759a8bc401a21",
+    "ghe3_optimize_40lpm.m": "d0da379d1fb6d32e66b678fc8b85bdc64e306e5ac64ce9e354d54d708fb4d108",
+    "ghe3_plot.m": "447df9bb93432225e0e59c6c38dc7a5a8c494d20461a94a19df1e148aa357014",
+    "ghe3_simulate.m": "5342b5355ccc480773f7cab8d0a2ed050ce7947e22d6fba13e8655396554fb05",
+    "ghe3_strength.m": "a9a88e6f0758425c2cb01ba7148796fbe6cf854f6355a29b2b986b681948e8a3",
+    "ghe3_trajectory.m": "be430a5d94ff67f5d2855f5f07bce1015f5e5f53b6f137193ed54f21c26a9628",
+    "ghe3_validate.m": "0d58fe963a40cd00cca085dac260bd8ca494517674219443666e432e8adcb87b",
+    "ghe3_workspace.m": "664efc72d24eb794ac41b76121323ac138272a90798c413d82ab4c63fae63080",
+    "pbl2_chuong4.m": "4bd704abf270b76f1c5146a08f4831f9965ebc37b549cc1ddf6d612aca273d14",
+    "pbl2_extended_checks.m": "111cfeb38650a7ff5c0a8d8bc088488b6bbf8d052586138455cbb34b81379fb1",
+    "run_ghe3.m": "f46ebd7dfd7b193217b62237a7510f7b8b07e229bc447e3cb94aa51f9c57b2cc",
+    "run_ghe3_3bar.m": "12a7b36de21f83d3c4c146f5ec024759907c77d4a9c571e77472a522cccf5d11",
+    "test_ghe3.m": "eef40e04d7ac6a58957b284c546b2811f26767fc9e6dbc0de94a658a4fcbd541",
+    "test_ghe3_3bar.m": "27ad4a81c0a76ef001a4bec797feb056cd08c43ab5555bbed3580ce940902762",
+    "test_ghe3_layout.m": "23b1e978068bfdbae9fd305e08713f98bf1a790741af73f96a0e67ee96832af5",
+    "test_pbl2_chuong4.m": "df55eae9dc85118e84307fc535dd9236250ad2ef9744a2ad99993c124cfd1848"
+  }
+}

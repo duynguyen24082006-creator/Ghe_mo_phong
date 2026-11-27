@@ -1,0 +1,115 @@
+{
+  "summary": {
+    "mass_kg": "120",
+    "minimum_length_m": "0.936061578744",
+    "maximum_length_m": "1.02610931024",
+    "maximum_abs_speed_mps": "0.0254751822069",
+    "maximum_abs_length_acceleration_mps2": "0.0144538783027",
+    "minimum_force_N": "358.797278411",
+    "maximum_force_N": "427.987803762",
+    "maximum_design_compression_N": "556.38414489",
+    "maximum_design_tension_N": "0",
+    "extension_capacity_N": "645.766397264",
+    "retraction_capacity_N": "552.30401582",
+    "maximum_condition_scaled": "1.42505201349",
+    "peak_simultaneous_air_Lpm": "25.8520157209",
+    "workspace_sample_count": "729",
+    "workspace_accepted_count": "729",
+    "maximum_fk_error_scaled_m": "3.33941216959e-16",
+    "rod_max_combined_stress_Pa": "3338813.55604",
+    "rod_min_yield_margin": "53.1625971384",
+    "rod_max_slenderness": "75.0218620485",
+    "rod_euler_critical_slenderness": "76.4091456112",
+    "cylinder_VM_Pa": "2036051.19563",
+    "cylinder_yield_margin": "61.3933481968",
+    "beam_bending_stress_Pa": "16246241.1671",
+    "beam_center_deflection_m": "0.000169231678824",
+    "beam_yield_margin": "7.23244218717",
+    "max_constraint_virtual_work_residual": "5.70696918542e-17",
+    "max_constraint_force_N": "4.36254921234",
+    "max_constraint_moment_Nm": "0.0547769010446",
+    "max_passive_xy_m": "0.000438470953232",
+    "max_abs_passive_yaw_rad": "0.00121896458857",
+    "max_abs_lateral_force_N": "2.59743681221",
+    "max_base_moment_Nm": "2.51786841501",
+    "max_equilibrium_residual": "1.40438008445e-13",
+    "maximum_passive_constraint_condition_scaled": "1.41249388925",
+    "average_air_Lpm": "22.9527013279",
+    "min_tank_pressure_Pa": "728307.84591",
+    "air_supply_feasible": "1",
+    "average_air_demand_Lpm": "23.0195472232",
+    "min_demand_tank_pressure_Pa": "728010.614946",
+    "valve_tracking_feasible": "1",
+    "maximum_valve_tracking_error_m": "0.00063686642173",
+    "valve_flow_capacity_feasible": "1",
+    "maximum_tank_balance_residual_Pa": "3.59432306141e-09",
+    "tank_total_inflow_L": "0",
+    "tank_total_outflow_L": "8.49055858949",
+    "valve_tracking_mismatch_sample_count": "33",
+    "maximum_valve_pressure_drop_Pa": "592.062595413",
+    "maximum_flow_proxy_error_m": "0.000671437512444",
+    "actual_motion_solved": "0",
+    "trajectory_achieved": "NaN",
+    "motion_resource_screen_ok": "1",
+    "supply_pressure_gauge_Pa": "300000",
+    "regulator_pressure_gauge_Pa": "300000"
+  },
+  "validation": {
+    "runtime": "GNU Octave 9.4.0",
+    "matlab_target": "R2017b API compatibility; not directly executed on MATLAB R2017b",
+    "geometry": {
+      "frame_outer_side_m": 1.0,
+      "lower_anchor_radius_m": 0.42,
+      "upper_anchor_radius_assumed_m": 0.36,
+      "upper_anchor_side_m": 0.6235382907247957,
+      "neutral_height_m": 0.9791634184343285,
+      "neutral_body_lean_deg": 3.506517540593342,
+      "lower_pin_axes": "horizontal tangents; cylinders rotate around them",
+      "upper_plate_outline_known": false,
+      "fixed_rod_clocking_verified": false
+    },
+    "tests": {
+      "core_test_groups_passed": 31,
+      "layout_and_jacobian_checks": "PASS",
+      "four_scenarios_and_full_event_average": "PASS",
+      "portable_extended_reproduction": "PASS"
+    },
+    "periodic": {
+      "frequency_Hz": 0.09,
+      "mean_required_Lpm": 23.019547223177135,
+      "mean_credited_Lpm": 22.952701327948652,
+      "peak_required_Lpm": 25.866354518864792,
+      "peak_speed_mps": 0.02547518220690563,
+      "force_min_N": 358.7972784111428,
+      "force_max_N": 427.98780376176865,
+      "actual_motion_solved": false,
+      "trajectory_achieved": null,
+      "air_resource_screen_ok": true,
+      "structural_scope_status": "SCREENING INCOMPLETE: rod buckling not assessed; other critical checks remain"
+    },
+    "longrun": {
+      "duration_s": 120,
+      "minimum_tank_gauge_Pa": 600000.0,
+      "mass_balance_max_residual_Pa": 1.2514647096395493e-08
+    },
+    "source_m_files": 25
+  },
+  "uploads": {
+    "shapr3d_export_2026-10-19_07h47m.step": {
+      "sha256": "ba520996e15dc7b319664f528d4db774847a61c9d4a9bc17e6edca752ef7a8e8",
+      "bytes": 2679266
+    },
+    "san_pham_tudonghoadanang.xlsx": {
+      "sha256": "d1a18cc931385a8c72163195f70b9d8a215d31e3f4cc21491dabddd8d22d780c",
+      "bytes": 267836
+    },
+    "SC-Series-Cylinder-202409280439123036.pdf": {
+      "sha256": "8d11dd3e3008b2e07cd58ade35acf0f9dcf89f059ade0541a66246992b032f75",
+      "bytes": 2681727
+    },
+    "shapr3d_export_2026-11-24_21h55m.step": {
+      "sha256": "da7c03660a8b31c90ae9e02cbdfadd69a9cadd8a7f966f67d9602cca6ef1beec",
+      "bytes": 1838441
+    }
+  }
+}

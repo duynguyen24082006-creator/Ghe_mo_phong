@@ -1,0 +1,17 @@
+3-RPS model: bottom revolute axes tangential to base, upper spherical joints.
+Base hinge axis orientation assumed tangential; example dimensions are illustrative.
+Mass 120.000 kg; lengths 936.06..1026.11 mm; peak |v| 0.0255 m/s.
+Forces 358.80..427.99 N; peak simultaneous atmospheric-equivalent flow 25.85 L/min.
+Sampled geometric workspace 729/729 accepted.
+Air mean required 23.020 L/min; credited inlet 22.953 L/min (last complete period; integrated reduced-order flow).
+Receiver minimum 7.280 bar gauge; air supply screen 1.
+Flow-only peak displacement error 0.671 mm; motion resource screen 1.
+Actual trajectory achieved: NOT ASSESSED (no coupled motion solution).
+SCREENING INCOMPLETE: rod buckling not assessed; other critical checks remain
+Exports: /tmp/pbl2_geometry_update_tests/tuan_hoan_009Hz
+tang_toc: Qmean 4.2248 L/min; vmax 0.008433 m/s; F 376.18..427.10 N
+phanh: Qmean 4.2386 L/min; vmax 0.008488 m/s; F 359.62..409.92 N
+cua_trai: Qmean 3.6669 L/min; vmax 0.007346 m/s; F 364.06..422.45 N
+cua_phai: Qmean 3.6669 L/min; vmax 0.007346 m/s; F 364.06..422.45 N
+PBL2: baseline and four events PASS (full-event averages, smooth ends, hold, mass balance, flags).
+error: ignoring const execution_exception& while preparing to exit

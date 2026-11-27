@@ -1,0 +1,837 @@
+[
+  {
+    "path": "PROJECT_STATE.md",
+    "bytes": 22229,
+    "sha256": "ef31a1fb14a7783b0afb4eaf437850b6bfd5e51466f33854a9a71a04f600c1eb"
+  },
+  {
+    "path": "data/CAD_goc/shapr3d_export_2026-10-19_07h47m.step",
+    "bytes": 2679266,
+    "sha256": "ba520996e15dc7b319664f528d4db774847a61c9d4a9bc17e6edca752ef7a8e8"
+  },
+  {
+    "path": "data/CAD_goc/shapr3d_export_2026-11-24_21h55m.step",
+    "bytes": 1838441,
+    "sha256": "da7c03660a8b31c90ae9e02cbdfadd69a9cadd8a7f966f67d9602cca6ef1beec"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/README.md",
+    "bytes": 4202,
+    "sha256": "c7dde1ec1f9610330336d4ca13ebfab44874a068654011ef5ba872654a7efb06"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/README_GEOMETRY_UPDATE.md",
+    "bytes": 3870,
+    "sha256": "0c35aa575eb17813808e160efa41744e3c2a8a926c07f9d5ecbe57e37ef3a8c3"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/START_HERE_VI.txt",
+    "bytes": 1124,
+    "sha256": "e30523c386258106dd8109e971155ef92ebce3d524325ffede3b9cd21b27005a"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ghe3_air_defaults.m",
+    "bytes": 1630,
+    "sha256": "56bc3a9b456fec78140bfbb6649832ef190090603850813e21fcef4bbf8d7e71"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ghe3_air_supply.m",
+    "bytes": 10470,
+    "sha256": "e616cbbe97a7381b8623aff07593f4ebc61c151f288fb4f3ad145f021aec1dc6"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ghe3_assembly_diagnostics.m",
+    "bytes": 2030,
+    "sha256": "9f1eb5aec521dc9e176a8b3343a91d32a6b3af103beaccde8360b6c0e75b0951"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ghe3_defaults.m",
+    "bytes": 2260,
+    "sha256": "418a1618d9cfeff9c0f9c74f2285552037f38bd32072301bc47bbd115c8f3e3a"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ghe3_export.m",
+    "bytes": 13088,
+    "sha256": "562d91b2e318ef04f9d92a276f43faff36c489b210999c8754790e09b71d8746"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ghe3_fk.m",
+    "bytes": 1293,
+    "sha256": "c91cf1eb8f4b38abec023a9ee42e159ed2254cce874510a41223f81cb88f8d47"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ghe3_forces.m",
+    "bytes": 1922,
+    "sha256": "c2fa0a935a71e09b4b31f1d02ca0dbc98b22e14dcaec1783ad752b80242e46db"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ghe3_geometry.m",
+    "bytes": 2869,
+    "sha256": "eb62a184291bfaffc092580179898a75d4f605d71116c4a509cb66dac893f510"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ghe3_input.m",
+    "bytes": 5856,
+    "sha256": "0cbe71c93f88ca87ba8247ab6e81a1e52c4ec2b87d9f6340bbbc46c6c437d420"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ghe3_layout.m",
+    "bytes": 1982,
+    "sha256": "9df5a09af6c363ed8dba92adacc1763b4c00c94c54bf3b28074759a8bc401a21"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ghe3_optimize_40lpm.m",
+    "bytes": 16022,
+    "sha256": "d0da379d1fb6d32e66b678fc8b85bdc64e306e5ac64ce9e354d54d708fb4d108"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ghe3_plot.m",
+    "bytes": 5679,
+    "sha256": "447df9bb93432225e0e59c6c38dc7a5a8c494d20461a94a19df1e148aa357014"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ghe3_simulate.m",
+    "bytes": 3414,
+    "sha256": "5342b5355ccc480773f7cab8d0a2ed050ce7947e22d6fba13e8655396554fb05"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ghe3_strength.m",
+    "bytes": 23722,
+    "sha256": "a9a88e6f0758425c2cb01ba7148796fbe6cf854f6355a29b2b986b681948e8a3"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ghe3_trajectory.m",
+    "bytes": 453,
+    "sha256": "be430a5d94ff67f5d2855f5f07bce1015f5e5f53b6f137193ed54f21c26a9628"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ghe3_validate.m",
+    "bytes": 6046,
+    "sha256": "0d58fe963a40cd00cca085dac260bd8ca494517674219443666e432e8adcb87b"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ghe3_workspace.m",
+    "bytes": 1078,
+    "sha256": "664efc72d24eb794ac41b76121323ac138272a90798c413d82ab4c63fae63080"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/hinh_bao_cao/air_tank.png",
+    "bytes": 171827,
+    "sha256": "12e8c7cf7ba0ff69260c4a175a66026b9bf6ee21af48db2d66d625a83a2916c0"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/hinh_bao_cao/algorithm.png",
+    "bytes": 158431,
+    "sha256": "5072f5d9da38fdd12dc5ddeab502feda304419623627a40161a13917fbf527c3"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/hinh_bao_cao/assembly_angles.png",
+    "bytes": 494955,
+    "sha256": "aacf36bb161d6ea51f0ca545cc412863443b5a5ee19ed6fa36ed2628ee88d98f"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/hinh_bao_cao/ch12_reference.png",
+    "bytes": 431261,
+    "sha256": "9ceb0fa0ace63a7b5719fdff173e58a5a22de87808496ed96a00685cd912440f"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/hinh_bao_cao/ch12_valves.png",
+    "bytes": 221673,
+    "sha256": "3b64bc3cd826efd62c3932729529cef4b8560f54897ec0de45999d8370511586"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/hinh_bao_cao/events_1.png",
+    "bytes": 311658,
+    "sha256": "dfd3984aea7cd979a72c412f2ef597f99454d965ad4fb536a419119831f80348"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/hinh_bao_cao/events_2.png",
+    "bytes": 332416,
+    "sha256": "69d9c70354315d461ffe8cfa4f000e23c58db14c81a0e859262c03333288942b"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/hinh_bao_cao/layout_new.png",
+    "bytes": 314073,
+    "sha256": "a8a59580f1318efda26c4ea5516eccf83580ba2977f3b814b65b71e05e115b7a"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/hinh_bao_cao/periodic.png",
+    "bytes": 436269,
+    "sha256": "f8122be1c5dcd7a02735b75e10c8716de58c50c2c5fbf06428029f5ea4e23411"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/hinh_bao_cao/periodic_4panel.png",
+    "bytes": 453048,
+    "sha256": "f836ba24ca6f544f8446f943ba4aeb18648a6d000d408810101853d92cef8fa1"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/hinh_bao_cao/simscape.png",
+    "bytes": 133805,
+    "sha256": "c9e0be313918a9dcac81afe107c7fe33f988f4e7979d3fa3f3957fbcb4f3d1ee"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/hinh_bao_cao/valves_new.png",
+    "bytes": 221229,
+    "sha256": "309d8fbd8d6bcc5a03dcefe5f1b4846a4d3108eb3c595d6aab849669af076182"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ket_qua_mau/core_tests.txt",
+    "bytes": 299,
+    "sha256": "655763c39f5e1eee45a4e5a17145e2e09ed9b9c0091359af2b1d329ee6323861"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ket_qua_mau/cua_phai.csv",
+    "bytes": 199559,
+    "sha256": "939004bdd0ec17dee9a027543ca07420dd87d99ab3181e4a7afedfc4b76724ca"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ket_qua_mau/cua_trai.csv",
+    "bytes": 198714,
+    "sha256": "2ad1def2c3bd92a31068e1360db7a5a58f8b391d60f2f7e9e02305fd4a8f43ee"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ket_qua_mau/extended_checks.mat",
+    "bytes": 1942699,
+    "sha256": "0c8a36945ce29887c28a24aa7afa0cf0da3cf0dd641d6225827ab0be373b3d87"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ket_qua_mau/extended_geometry.mat",
+    "bytes": 1943301,
+    "sha256": "50d919f917e254238dbc6b92cc3c0a954c330943e8a3c967fdf29f2d35375cd2"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ket_qua_mau/layout_recheck.txt",
+    "bytes": 165,
+    "sha256": "c7c9202d9054fd038f682c115ba472f280e7fb80461c04a98d2c1b7b9bbb7aa6"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ket_qua_mau/phanh.csv",
+    "bytes": 198210,
+    "sha256": "524d9d2ed3ec79d8d9ac86f16dc24dae0320ff1ac3cb21db50636ec5157f9fb0"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ket_qua_mau/portable_extended_tests.txt",
+    "bytes": 153,
+    "sha256": "c89274bd9e10d0d0ca3ba73219aa7eab5779a49879579cc011ed21fddb22daf0"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ket_qua_mau/regression_check.txt",
+    "bytes": 96,
+    "sha256": "64d09cc7a30497e4597bb382196c6d1bd84ed809ba4520caf4d28e289dd77074"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ket_qua_mau/scenario_tests.txt",
+    "bytes": 1240,
+    "sha256": "1ae7333cc4199eaa34a7509b22edbb579bfd1395c4d4c169e6d108c5540d150f"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ket_qua_mau/study.mat",
+    "bytes": 2571383,
+    "sha256": "da8d8e54b36663a0c07b797857cc0b5bbbdcd33344b396817b3fadf122961d44"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ket_qua_mau/tang_toc.csv",
+    "bytes": 198708,
+    "sha256": "48fc096c9d5f277cff576d64a8f042db7899340f132e6dd2dc40d5023a8c925a"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ket_qua_mau/tuan_hoan_009Hz/results.mat",
+    "bytes": 1004403,
+    "sha256": "64c4a25a06911145dddebf2aea34c8b9866c74b49696224e1c6e22629801502e"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ket_qua_mau/tuan_hoan_009Hz/screening_notes.txt",
+    "bytes": 5346,
+    "sha256": "59cc3b70b19db738554e9570858474b7ba02a3e1dfaaf31287303c4b047c3a6b"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ket_qua_mau/tuan_hoan_009Hz/summary.csv",
+    "bytes": 1922,
+    "sha256": "654c993b6b7a7bc2024fc3dcc776e175b885fff5c4d01d87d1202ff728f92212"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ket_qua_mau/tuan_hoan_009Hz/trajectory.csv",
+    "bytes": 1320117,
+    "sha256": "0b37ad16772bd8cecc52d9772073f690f05766a298bb37eeb248a171428cd97a"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ket_qua_mau/tuan_hoan_009Hz/workspace_sampled.csv",
+    "bytes": 58833,
+    "sha256": "7400c05d479e590daa64238ce51c8e6611234b07ac274965b082e61b4ce274f8"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/ket_qua_mau/validation_geometry.json",
+    "bytes": 3736,
+    "sha256": "2a464cef7cb0c0b8106f56ec443d7fc556e2142652c1e67d0f347962788b2ec1"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/pbl2_chuong4.m",
+    "bytes": 5915,
+    "sha256": "4bd704abf270b76f1c5146a08f4831f9965ebc37b549cc1ddf6d612aca273d14"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/pbl2_extended_checks.m",
+    "bytes": 2103,
+    "sha256": "111cfeb38650a7ff5c0a8d8bc088488b6bbf8d052586138455cbb34b81379fb1"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/run_ghe3.m",
+    "bytes": 1684,
+    "sha256": "f46ebd7dfd7b193217b62237a7510f7b8b07e229bc447e3cb94aa51f9c57b2cc"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/run_ghe3_3bar.m",
+    "bytes": 1483,
+    "sha256": "12a7b36de21f83d3c4c146f5ec024759907c77d4a9c571e77472a522cccf5d11"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/test_ghe3.m",
+    "bytes": 18493,
+    "sha256": "eef40e04d7ac6a58957b284c546b2811f26767fc9e6dbc0de94a658a4fcbd541"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/test_ghe3_3bar.m",
+    "bytes": 3324,
+    "sha256": "27ad4a81c0a76ef001a4bec797feb056cd08c43ab5555bbed3580ce940902762"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/test_ghe3_layout.m",
+    "bytes": 1649,
+    "sha256": "23b1e978068bfdbae9fd305e08713f98bf1a790741af73f96a0e67ee96832af5"
+  },
+  {
+    "path": "data/MATLAB_3bar_009Hz_V1/PBL2_MATLAB_CA_3bar_009Hz/test_pbl2_chuong4.m",
+    "bytes": 1715,
+    "sha256": "df55eae9dc85118e84307fc535dd9236250ad2ef9744a2ad99993c124cfd1848"
+  },
+  {
+    "path": "data/README.md",
+    "bytes": 943,
+    "sha256": "6a29a9e7544abb26673e02468198653750b1c4d1bcc4b4bd6074fb7aa53f71b6"
+  },
+  {
+    "path": "data/catalogue_thiet_ke/Mat_trau_F-M16X150U_tham_chieu_tu_anh.csv",
+    "bytes": 1204,
+    "sha256": "34462cf60b48e83f1beeab5f911a56e7f182c40f55eb622cf95ab517d6cadc85"
+  },
+  {
+    "path": "data/catalogue_thiet_ke/README.md",
+    "bytes": 940,
+    "sha256": "0cef79e1b40299130106fc7056a29bc33f45bb71c8634793a6069d16c6de73f3"
+  },
+  {
+    "path": "data/catalogue_thiet_ke/SC-Series-Cylinder-202409280439123036.pdf",
+    "bytes": 2681727,
+    "sha256": "8d11dd3e3008b2e07cd58ade35acf0f9dcf89f059ade0541a66246992b032f75"
+  },
+  {
+    "path": "data/catalogue_thiet_ke/san_pham_tudonghoadanang.xlsx",
+    "bytes": 267836,
+    "sha256": "d1a18cc931385a8c72163195f70b9d8a215d31e3f4cc21491dabddd8d22d780c"
+  },
+  {
+    "path": "data/do_STEP_2026_11_24/base_details.py",
+    "bytes": 806,
+    "sha256": "edeeadc22b980a4195d584ee30d5297afeb459cb9f28ab539b1f7b2872652793"
+  },
+  {
+    "path": "data/do_STEP_2026_11_24/base_stats.py",
+    "bytes": 1014,
+    "sha256": "c9ea23bc213a21600377aa3c00158a361e091119dd114cdb5df4cee778f8d9b2"
+  },
+  {
+    "path": "data/do_STEP_2026_11_24/read.py",
+    "bytes": 1009,
+    "sha256": "78fa35a3da7a41741f2da9afed34587fc6cba3f731e1188fde905629562d9139"
+  },
+  {
+    "path": "data/do_STEP_2026_11_24/solids.txt",
+    "bytes": 3656,
+    "sha256": "09d80d691e377026ee5431a2f2b82907faae9738b47b2e6c17dfd39a22b99131"
+  },
+  {
+    "path": "data/doi_chieu/evidence.json",
+    "bytes": 4634,
+    "sha256": "cdbae6c12af2b21b38de9ff7d9a2dbbe8f0215fd315a41821f7046ecf707b5fb"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/README.md",
+    "bytes": 12881,
+    "sha256": "7a095e3eb426da5a908c00775fa0260488b325150d5fcb6a47072cc833a93ba3"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/ghe3_air_defaults.m",
+    "bytes": 1630,
+    "sha256": "0345a25ae61761f9d03a815f1ea8d37a60284ed12eb326059c26e65b176818be"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/ghe3_air_supply.m",
+    "bytes": 8776,
+    "sha256": "cc7c8d57b78fe21d0d19d60c250b152ca049542c2377ed3306cffb0d36056bb8"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/ghe3_defaults.m",
+    "bytes": 1962,
+    "sha256": "8f3897e0b87a51bff657622de01f6fd3d88daac95d22f9ce13c5029ae245090c"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/ghe3_export.m",
+    "bytes": 11344,
+    "sha256": "cf5b16f799e131d991ee9dfd75e4f1aa3a89aa6b9e639edb4b37960a9879a9fd"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/ghe3_fk.m",
+    "bytes": 1293,
+    "sha256": "c91cf1eb8f4b38abec023a9ee42e159ed2254cce874510a41223f81cb88f8d47"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/ghe3_forces.m",
+    "bytes": 1922,
+    "sha256": "c2fa0a935a71e09b4b31f1d02ca0dbc98b22e14dcaec1783ad752b80242e46db"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/ghe3_geometry.m",
+    "bytes": 2869,
+    "sha256": "eb62a184291bfaffc092580179898a75d4f605d71116c4a509cb66dac893f510"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/ghe3_input.m",
+    "bytes": 5856,
+    "sha256": "0cbe71c93f88ca87ba8247ab6e81a1e52c4ec2b87d9f6340bbbc46c6c437d420"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/ghe3_optimize_40lpm.m",
+    "bytes": 15562,
+    "sha256": "a285f3591c52c67cab33cfbb908614be8ae6b8ba8816eceb0f3e62ca37baccbe"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/ghe3_plot.m",
+    "bytes": 4696,
+    "sha256": "94814e8e62fb141c6d8c1d28e7910eac48f88fe1844759d7413d9821e235714d"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/ghe3_simulate.m",
+    "bytes": 2659,
+    "sha256": "085bf543a9c1b59abb98637a3178ece5dedd75686816efd3338a46c3a0321d6c"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/ghe3_strength.m",
+    "bytes": 23722,
+    "sha256": "a9a88e6f0758425c2cb01ba7148796fbe6cf854f6355a29b2b986b681948e8a3"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/ghe3_trajectory.m",
+    "bytes": 453,
+    "sha256": "be430a5d94ff67f5d2855f5f07bce1015f5e5f53b6f137193ed54f21c26a9628"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/ghe3_validate.m",
+    "bytes": 5648,
+    "sha256": "e37685ea76fee372b56d5a3dd414dff2001ee54419c0b8a4f1bda5191edf30b3"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/ghe3_workspace.m",
+    "bytes": 1078,
+    "sha256": "664efc72d24eb794ac41b76121323ac138272a90798c413d82ab4c63fae63080"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/ket_qua/results.mat",
+    "bytes": 127285,
+    "sha256": "0ebd72248431a2a27090e07d6ce7d361b1b7584b37a7a02d0a7558e74030f308"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/ket_qua/screening_notes.txt",
+    "bytes": 2660,
+    "sha256": "9867b5d1c0b0f887a206d96fd3dc69a0322842d5ba6a145629e75a52bc2c47e6"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/ket_qua/summary.csv",
+    "bytes": 1268,
+    "sha256": "a61910c98143df72c5e91f274e785864d7118c8c1326bfd295b71d386b3452c3"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/ket_qua/trajectory.csv",
+    "bytes": 268302,
+    "sha256": "2e1414e02edb7a8fdf2a74128c3951c9353aa89fb0c671bf71ef1419c14775a5"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/ket_qua/workspace_sampled.csv",
+    "bytes": 51814,
+    "sha256": "e0f6a26d48c6bfe6a33975e0776b7380bbd4af745c4d062e4ce7df04fba93c05"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/run_ghe3.m",
+    "bytes": 1464,
+    "sha256": "581ffee89b274780f157aa91cd73f1bdda75f8d3f283c60aa888477b5c4493f8"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/test_ghe3.m",
+    "bytes": 18104,
+    "sha256": "dc59a6c1c2741749ffdfcd4053894c05e312844e81bd7361ae7c6a0ae0eb337f"
+  },
+  {
+    "path": "data/lich-su/MATLAB_Ghe3XyLanh/test_report.txt",
+    "bytes": 941,
+    "sha256": "1bb0e6280700f78d8ec3cc4c12ce4179588a36ce3c66da4d50e01dd5547b3183"
+  },
+  {
+    "path": "data/simulink_reference/HUONG_DAN_MATLAB_SIMULINK.md",
+    "bytes": 25063,
+    "sha256": "82d51d2a3371e833e6a42adba97215bc1b4df754e1da5eccd436356cd40e9c90"
+  },
+  {
+    "path": "data/simulink_reference/README.md",
+    "bytes": 444,
+    "sha256": "df0a2aac5d47350208ecf9b4fe9a8f1c609457f7f6c6f28c212600796c6ea1b4"
+  },
+  {
+    "path": "data/simulink_reference/VALIDATION.md",
+    "bytes": 1403,
+    "sha256": "c8724ddd394b6aaa9bede665624b1dffce85d654b10cae1aee482b1cace67e02"
+  },
+  {
+    "path": "data/simulink_reference/build_ghe3_reference.m",
+    "bytes": 4822,
+    "sha256": "b2ca65d2fff0d35a681d095a16db8541ec86ab1cb3dc5829600b54b1ced30925"
+  },
+  {
+    "path": "data/simulink_reference/core/ghe3_air_defaults.m",
+    "bytes": 1630,
+    "sha256": "56bc3a9b456fec78140bfbb6649832ef190090603850813e21fcef4bbf8d7e71"
+  },
+  {
+    "path": "data/simulink_reference/core/ghe3_air_supply.m",
+    "bytes": 10470,
+    "sha256": "e616cbbe97a7381b8623aff07593f4ebc61c151f288fb4f3ad145f021aec1dc6"
+  },
+  {
+    "path": "data/simulink_reference/core/ghe3_assembly_diagnostics.m",
+    "bytes": 2030,
+    "sha256": "9f1eb5aec521dc9e176a8b3343a91d32a6b3af103beaccde8360b6c0e75b0951"
+  },
+  {
+    "path": "data/simulink_reference/core/ghe3_defaults.m",
+    "bytes": 2260,
+    "sha256": "418a1618d9cfeff9c0f9c74f2285552037f38bd32072301bc47bbd115c8f3e3a"
+  },
+  {
+    "path": "data/simulink_reference/core/ghe3_export.m",
+    "bytes": 13088,
+    "sha256": "562d91b2e318ef04f9d92a276f43faff36c489b210999c8754790e09b71d8746"
+  },
+  {
+    "path": "data/simulink_reference/core/ghe3_fk.m",
+    "bytes": 1293,
+    "sha256": "c91cf1eb8f4b38abec023a9ee42e159ed2254cce874510a41223f81cb88f8d47"
+  },
+  {
+    "path": "data/simulink_reference/core/ghe3_forces.m",
+    "bytes": 1922,
+    "sha256": "c2fa0a935a71e09b4b31f1d02ca0dbc98b22e14dcaec1783ad752b80242e46db"
+  },
+  {
+    "path": "data/simulink_reference/core/ghe3_geometry.m",
+    "bytes": 2869,
+    "sha256": "eb62a184291bfaffc092580179898a75d4f605d71116c4a509cb66dac893f510"
+  },
+  {
+    "path": "data/simulink_reference/core/ghe3_input.m",
+    "bytes": 5856,
+    "sha256": "0cbe71c93f88ca87ba8247ab6e81a1e52c4ec2b87d9f6340bbbc46c6c437d420"
+  },
+  {
+    "path": "data/simulink_reference/core/ghe3_layout.m",
+    "bytes": 1982,
+    "sha256": "9df5a09af6c363ed8dba92adacc1763b4c00c94c54bf3b28074759a8bc401a21"
+  },
+  {
+    "path": "data/simulink_reference/core/ghe3_optimize_40lpm.m",
+    "bytes": 16022,
+    "sha256": "d0da379d1fb6d32e66b678fc8b85bdc64e306e5ac64ce9e354d54d708fb4d108"
+  },
+  {
+    "path": "data/simulink_reference/core/ghe3_plot.m",
+    "bytes": 5679,
+    "sha256": "447df9bb93432225e0e59c6c38dc7a5a8c494d20461a94a19df1e148aa357014"
+  },
+  {
+    "path": "data/simulink_reference/core/ghe3_simulate.m",
+    "bytes": 3414,
+    "sha256": "5342b5355ccc480773f7cab8d0a2ed050ce7947e22d6fba13e8655396554fb05"
+  },
+  {
+    "path": "data/simulink_reference/core/ghe3_strength.m",
+    "bytes": 23722,
+    "sha256": "a9a88e6f0758425c2cb01ba7148796fbe6cf854f6355a29b2b986b681948e8a3"
+  },
+  {
+    "path": "data/simulink_reference/core/ghe3_trajectory.m",
+    "bytes": 453,
+    "sha256": "be430a5d94ff67f5d2855f5f07bce1015f5e5f53b6f137193ed54f21c26a9628"
+  },
+  {
+    "path": "data/simulink_reference/core/ghe3_validate.m",
+    "bytes": 6046,
+    "sha256": "0d58fe963a40cd00cca085dac260bd8ca494517674219443666e432e8adcb87b"
+  },
+  {
+    "path": "data/simulink_reference/core/ghe3_workspace.m",
+    "bytes": 1078,
+    "sha256": "664efc72d24eb794ac41b76121323ac138272a90798c413d82ab4c63fae63080"
+  },
+  {
+    "path": "data/simulink_reference/core/pbl2_chuong4.m",
+    "bytes": 5915,
+    "sha256": "4bd704abf270b76f1c5146a08f4831f9965ebc37b549cc1ddf6d612aca273d14"
+  },
+  {
+    "path": "data/simulink_reference/core/pbl2_extended_checks.m",
+    "bytes": 2103,
+    "sha256": "111cfeb38650a7ff5c0a8d8bc088488b6bbf8d052586138455cbb34b81379fb1"
+  },
+  {
+    "path": "data/simulink_reference/core/run_ghe3.m",
+    "bytes": 1684,
+    "sha256": "f46ebd7dfd7b193217b62237a7510f7b8b07e229bc447e3cb94aa51f9c57b2cc"
+  },
+  {
+    "path": "data/simulink_reference/core/run_ghe3_3bar.m",
+    "bytes": 1483,
+    "sha256": "12a7b36de21f83d3c4c146f5ec024759907c77d4a9c571e77472a522cccf5d11"
+  },
+  {
+    "path": "data/simulink_reference/core/test_ghe3.m",
+    "bytes": 18493,
+    "sha256": "eef40e04d7ac6a58957b284c546b2811f26767fc9e6dbc0de94a658a4fcbd541"
+  },
+  {
+    "path": "data/simulink_reference/core/test_ghe3_3bar.m",
+    "bytes": 3324,
+    "sha256": "27ad4a81c0a76ef001a4bec797feb056cd08c43ab5555bbed3580ce940902762"
+  },
+  {
+    "path": "data/simulink_reference/core/test_ghe3_layout.m",
+    "bytes": 1649,
+    "sha256": "23b1e978068bfdbae9fd305e08713f98bf1a790741af73f96a0e67ee96832af5"
+  },
+  {
+    "path": "data/simulink_reference/core/test_pbl2_chuong4.m",
+    "bytes": 1715,
+    "sha256": "df55eae9dc85118e84307fc535dd9236250ad2ef9744a2ad99993c124cfd1848"
+  },
+  {
+    "path": "data/simulink_reference/ghe3_ik_reference.mdl",
+    "bytes": 2029,
+    "sha256": "ccfc54a060d9c8af7698cc2d356f6ac550923e55b33be6eca32bd57e330a21d4"
+  },
+  {
+    "path": "data/simulink_reference/ghe3_reference_ik.m",
+    "bytes": 329,
+    "sha256": "5e72b1ec22537ef14a1fabbbc7212c3221a29e40b6d32ca23d90ef31a7683fae"
+  },
+  {
+    "path": "data/simulink_reference/ghe3_reference_init.m",
+    "bytes": 966,
+    "sha256": "1ade455a4de01670f1edeed4716ad3a44cc5fc00ef3050e79f01b9237338e79b"
+  },
+  {
+    "path": "data/simulink_reference/ghe3_tilt_reference.m",
+    "bytes": 365,
+    "sha256": "38f8f4da2534baf7a2f2d2b16bf23f2f0e555a8e9f83eac248b5151815749be6"
+  },
+  {
+    "path": "data/simulink_reference/ghe3_valve_logic.m",
+    "bytes": 672,
+    "sha256": "cf96bbbc7c22aa4988c4a7584e8c809c769ac1a91ee634f855a605d0d94b06a0"
+  },
+  {
+    "path": "data/simulink_reference/ghe3_valve_logic_sfun.m",
+    "bytes": 1160,
+    "sha256": "78b474d62c502f2c48f663e3e7f93c7859601041eba2580e5843205ea2fae657"
+  },
+  {
+    "path": "data/simulink_reference/ghe3_vehicle_accel.m",
+    "bytes": 326,
+    "sha256": "2175a39c53072cae5ccf55ecb4104070a7db234a4dcb7ad31337760630290c31"
+  },
+  {
+    "path": "data/simulink_reference/test_ghe3_reference.m",
+    "bytes": 1129,
+    "sha256": "b04ef39330a2d8ccd33adeb28f7b52d5659074055a998db473c6c4750b08021d"
+  },
+  {
+    "path": "data/simulink_reference/test_report.txt",
+    "bytes": 211,
+    "sha256": "785bd0fac4c20550898809c4c34afa8a3bdd24861f0acbdcfee5aba7cecd2b6d"
+  },
+  {
+    "path": "data/step_to_multibody_STEP_800/CAD_measurements.json",
+    "bytes": 916,
+    "sha256": "c2e4be004903d828f8892ea436000939890325e007c3a450a6c60f804a7676ce"
+  },
+  {
+    "path": "data/step_to_multibody_STEP_800/README.md",
+    "bytes": 26360,
+    "sha256": "7f6aa95cde25f8957970c4afc8999e4031bb502841ce9a856c16f9e92bc12175"
+  },
+  {
+    "path": "data/step_to_multibody_STEP_800/ghe3_joint_command.m",
+    "bytes": 544,
+    "sha256": "577357b977c1919a34d5dde5bab275c265fe0194eaf2c3dc2e8512a4062826c6"
+  },
+  {
+    "path": "data/step_to_multibody_STEP_800/prepare_ghe3_STEP_800.m",
+    "bytes": 1627,
+    "sha256": "660e9a0f8278695ec32b4761bdffdf2da2c56ac1772cff998ae45f5d109d950c"
+  },
+  {
+    "path": "data/step_to_multibody_STEP_800/test_ghe3_STEP_geometry.m",
+    "bytes": 1107,
+    "sha256": "60f0e023ae7ebd4301c2421afe1f2c9f7ad76e2715d234e3d6c6003e4a00c9d5"
+  },
+  {
+    "path": "data/step_to_multibody_STEP_800/test_report.txt",
+    "bytes": 282,
+    "sha256": "c73d91a187e12dba6d80e4ca764f7b4b04c76855b6a5d1bebbab96f1f1a4881e"
+  },
+  {
+    "path": "figures/STEP_2026_10_19_V2/01_Ba_hinh_chieu_kich_thuoc_bao.png",
+    "bytes": 258541,
+    "sha256": "68b93299a52a5e1c392c0952abc7d2c9ee79c9235c37380ba43c4b598166c796"
+  },
+  {
+    "path": "figures/STEP_2026_10_19_V2/01_Ba_hinh_chieu_kich_thuoc_bao.svg",
+    "bytes": 870705,
+    "sha256": "c6fd1737f1d3fdb6f41d6a79eeb8fe08d9e862db5e9e1c09f9e9ad8ed28aa0bf"
+  },
+  {
+    "path": "figures/STEP_2026_10_19_V2/02_Tam_ba_xy_lanh.png",
+    "bytes": 389336,
+    "sha256": "768e1836e202d105ac146dc65102e1725c55603211636f1f1dda7c3e405dc71a"
+  },
+  {
+    "path": "figures/STEP_2026_10_19_V2/02_Tam_ba_xy_lanh.svg",
+    "bytes": 158695,
+    "sha256": "f0c6ed9a9e22d182fbca72f5f8b28e423c557b741b060068e8782947a3d59e80"
+  },
+  {
+    "path": "figures/STEP_2026_10_19_V2/03_Cao_do_va_tam_khop.png",
+    "bytes": 284581,
+    "sha256": "eb8c0f2923480af94345d3d96761e2e7ac92643d1b1a0afb3ff94747f37761d3"
+  },
+  {
+    "path": "figures/STEP_2026_10_19_V2/03_Cao_do_va_tam_khop.svg",
+    "bytes": 351339,
+    "sha256": "9dc15f0f1c52d30b3a23fb6b005751496ae84dadb97570ad9290c7a45f518086"
+  },
+  {
+    "path": "figures/STEP_2026_10_19_V2/04_Chi_tiet_lo_khop.png",
+    "bytes": 265077,
+    "sha256": "51e2e61317c275473c8491bee883e84bb7dbf62b6efc888259c1dc5c24226ceb"
+  },
+  {
+    "path": "figures/STEP_2026_10_19_V2/04_Chi_tiet_lo_khop.svg",
+    "bytes": 131767,
+    "sha256": "d482c587b65ac2b90d68d74fffa302fbbcdd0887754cc6867f3f4d20c24fcac4"
+  },
+  {
+    "path": "figures/STEP_2026_10_19_V2/05_Phoi_canh_CAD.png",
+    "bytes": 336908,
+    "sha256": "f227d94d8d40dde89e23aa64c9dcc5c57ecd9aadc44608dbd874cf8311b0fdc7"
+  },
+  {
+    "path": "figures/STEP_2026_10_19_V2/05_Phoi_canh_CAD.svg",
+    "bytes": 563439,
+    "sha256": "6a5ec775cf46eaa9d72529fe5c120d79aae8ae8e474f9a7a6176f6c4d9eaf827"
+  },
+  {
+    "path": "figures/STEP_2026_10_19_V2/Bo_hinh_kich_thuoc_CAD.pdf",
+    "bytes": 404989,
+    "sha256": "03c5cd49f130803d1f46602b2eb61eeed1ccad58bd89ff4d37166c1d4a4e4928"
+  },
+  {
+    "path": "figures/STEP_2026_10_19_V2/GHI_CHU.txt",
+    "bytes": 737,
+    "sha256": "c712eb94ee35c54d0d187419869608a9e7812836e226e12a00ec25736f609b46"
+  },
+  {
+    "path": "figures/STEP_2026_10_19_V2/Kich_thuoc_do_tu_STEP.json",
+    "bytes": 916,
+    "sha256": "c2e4be004903d828f8892ea436000939890325e007c3a450a6c60f804a7676ce"
+  },
+  {
+    "path": "figures/STEP_2026_10_19_V2/README.md",
+    "bytes": 1084,
+    "sha256": "d0d47e22dde59eb17e01b66d397cce6d303a9e1b12e730f4979d4b5bc63d9ef5"
+  },
+  {
+    "path": "figures/lich-su/dong_hoc.png",
+    "bytes": 340093,
+    "sha256": "60f3f2497c807b3633e3dc2f5b61a5e1ae5e42b8e78cd8a79916a7ed658905b1"
+  },
+  {
+    "path": "figures/lich-su/hinh_hoc.png",
+    "bytes": 219433,
+    "sha256": "42e49fe94c33ef999e8a3f8c2fceba3585f57f94408dc03ebe91ee702984a6ce"
+  },
+  {
+    "path": "figures/lich-su/luc_khi.png",
+    "bytes": 267547,
+    "sha256": "6d8fdf952afd072eabd0cff590534dfa35f37b16f2dc2f1dc891d195f6d6b932"
+  },
+  {
+    "path": "report/PBL2_5_chuong_3bar_009Hz_bo_tri_CA.docx",
+    "bytes": 3387943,
+    "sha256": "8938960fac8df0290b036eaa454ffca3fe6877a23d14f30ac7f5c6397ba582aa"
+  },
+  {
+    "path": "report/README.md",
+    "bytes": 352,
+    "sha256": "d44ce93cc5ff4368e4b742ac21a64a0740806526e165268ffae9e4a67a42ca8e"
+  },
+  {
+    "path": "report/lich-su/Bao_cao_Dong_hoc_Do_ben_Ghe_3RPS.docx",
+    "bytes": 834322,
+    "sha256": "d3ea0f1feb9172dca670c0e255550ec8a13ca92205be60f0afb3615687869b9f"
+  },
+  {
+    "path": "report/lich-su/Bao_cao_Ghe_3RPS.md",
+    "bytes": 54617,
+    "sha256": "aa8af0632fac98e99039438af5839a1c1a90faa2b229a14400130cadca454e09"
+  },
+  {
+    "path": "report/lich-su/may_nen/Muc_3_3_Tinh_chon_may_nen_da_sua.docx",
+    "bytes": 28281,
+    "sha256": "6ed05ba94dec189fb362fb935b746d44df73e494b1780d45658a7a4a624bedc5"
+  },
+  {
+    "path": "report/lich-su/may_nen/PBL2Ghemophong_da_sua_may_nen.docx",
+    "bytes": 474350,
+    "sha256": "e493febc191feabc7f460720256facf08ab90364eb3f9a5b2865a6219d39b42d"
+  },
+  {
+    "path": "reviews/README.md",
+    "bytes": 453,
+    "sha256": "9d6e4f8d37455e0fc511c9cac1b44e0f720e518b1a41712cba33b8499d8a644a"
+  },
+  {
+    "path": "reviews/kiem-thu-da-co/simulink_reference/VALIDATION.md",
+    "bytes": 1403,
+    "sha256": "c8724ddd394b6aaa9bede665624b1dffce85d654b10cae1aee482b1cace67e02"
+  },
+  {
+    "path": "reviews/kiem-thu-da-co/simulink_reference/test_report.txt",
+    "bytes": 211,
+    "sha256": "785bd0fac4c20550898809c4c34afa8a3bdd24861f0acbdcfee5aba7cecd2b6d"
+  },
+  {
+    "path": "reviews/kiem-thu-da-co/step_to_multibody/test_report.txt",
+    "bytes": 282,
+    "sha256": "c73d91a187e12dba6d80e4ca764f7b4b04c76855b6a5d1bebbab96f1f1a4881e"
+  },
+  {
+    "path": "reviews/lich-su/verification_summary.json",
+    "bytes": 283,
+    "sha256": "e3e9b7290a298295d1715b00ea4e1fde1ca4d8576788ba4394e80223ff5e3c7c"
+  }
+]

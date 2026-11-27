@@ -1,0 +1,14 @@
+PASS: 24 scientific/numerical test groups
+Runtime version: 9.4.0
+200 random IK-FK round trips; analytical Jacobian vs differences.
+Independent symmetric/eccentric statics; closed-form RPS closure/parasitic motion.
+Independent Lagrange energy and Python dynamic-force regression.
+Full spatial equilibrium and zero virtual power of transverse constraints.
+Trajectory/actuator derivatives; invalid-input rejection; no-person case.
+Euler applicability/NaN preservation; low/nonpositive-pressure-capacity failures.
+Headless default trajectory and simultaneous atmospheric-equivalent flow.
+Current 1000-mm/120-kg SC63-500 defaults and rear-leg numbering.
+Closed-center deadband and non-grid-aligned transport delay.
+Isothermal tank mass balance, exact relay cutoff and starvation rejection.
+Regulator aliases and time-varying pressure-envelope/static-holding distinctions.
+MATLAB desktop UI/graphics not exercised; no physical chair/valve tested.

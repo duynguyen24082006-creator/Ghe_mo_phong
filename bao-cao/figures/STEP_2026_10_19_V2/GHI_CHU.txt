@@ -1,0 +1,7 @@
+Đo trực tiếp hình học STEP, đơn vị mm.
+Kích thước bao phụ thuộc hướng trục CAD. Nhãn C1/C2/C3 chỉ dùng cho hình này.
+Tam giác tâm trục xy lanh có cạnh khoảng 800 mm, bán kính khoảng 461,88 mm; khác bộ giả thiết 420/360 mm trước đây.
+Ba xy lanh đứng thẳng ở trạng thái CAD hiện tại; không tự coi vị trí này là thu hết hoặc trung tính.
+Khoảng cách tâm chốt theo CAD: 739,50 mm; chưa xác nhận hành trình/Lmin bằng file này.
+Kích thước lỗ Ø16/Ø14/Ø26 đo ở các solid khác nhau; cần đối chiếu lắp ghép và catalogue.
+Không thay đổi mô hình MATLAB, thông số prompt hoặc báo cáo trong lần xuất hình này.

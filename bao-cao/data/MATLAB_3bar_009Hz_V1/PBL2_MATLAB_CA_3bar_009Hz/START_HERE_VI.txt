@@ -1,0 +1,26 @@
+BO MA HINH HOC CAP NHAT 3 BAR - 0,09 HZ
+
+1. Dat toan bo tep .m trong cung thu muc va mo thu muc do trong MATLAB.
+2. Chay:
+   study = pbl2_chuong4(true,fullfile(pwd,'ket_qua_PBL2'));
+3. Kiem thu:
+   test_ghe3;
+   test_ghe3_layout;
+   test_pbl2_chuong4;
+
+HINH HOC DANG DUNG (DOC README.md TRUOC KHI THAY THONG SO):
+- Canh NGOAI khung de: 1000 mm; khong phai canh noi tam khop.
+- Ban kinh tam chot CA duoi rb = 420 mm.
+- Ban kinh tam mat trau/CA tren rp = 360 mm: GIA THIET de tai.
+- Canh noi tam tren = sqrt(3)*360 = 623,538 mm.
+- Cao do trung tinh h0 = sqrt(981^2-60^2) mm.
+- Than xy lanh nghieng vao tam 3,506... do so voi phuong dung,
+  quay QUANH truc chot CA nam ngang tiep tuyen.
+- Mat ghe la mot mat phang cung; chua biet kich thuoc duong bao ngoai.
+
+Khong su dung lai ket qua cua hinh hoc rp=577,35 mm.
+Van hanh 3 bar, 0,09Hz chi la sang loc so, khong phai ghe thuc da kiem nghiem.
+actualMotionSolved=false; trajectoryAchieved=NaN = CHUA DANH GIA.
+40L/phut FAD, doi ap, ma sat, vat lieu va gioi han khop can xac nhan.
+API huong toi MATLAB R2017b; da kiem bang GNU Octave 9.4.0,
+chua chay truc tiep tren MATLAB R2017b.

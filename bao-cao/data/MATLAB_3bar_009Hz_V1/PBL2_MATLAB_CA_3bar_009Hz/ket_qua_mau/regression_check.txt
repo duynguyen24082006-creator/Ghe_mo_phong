@@ -1,0 +1,2 @@
+NEW GEOMETRY REGRESSION PASS
+error: ignoring const execution_exception& while preparing to exit

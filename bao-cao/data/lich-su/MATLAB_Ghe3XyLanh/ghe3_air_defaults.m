@@ -1,0 +1,36 @@
+function p = ghe3_air_defaults(p)
+% Add missing air-system parameters to legacy parameter structures.
+% All pressures are gauge Pa. Flow is atmospheric-equivalent L/min at T=Tref.
+defaults = struct('valveType','5/3_CLOSED_CENTER', ...
+ 'valveDeadbandSpeed',0.001,'valveResponseTime',0.025, ...
+ 'valveRatedFlowLpm',300,'valveRatedInletPressure',0.60e6, ...
+ 'valveRatedPressureDrop',0.10e6,'valveCriticalRatio',0.5, ...
+ 'valveMaxPressureDrop',0.05e6,'valveMaxTrackingError',0.003, ...
+ 'compressorFlowLpm',40,'compressorMaxDuty',1, ...
+ 'tankVolume',0.012,'tankPressureMax',0.80e6, ...
+ 'tankPressureCutIn',0.60e6,'tankInitialPressure',0.80e6, ...
+ 'regulatorHeadroom',0.02e6,'airTimeStep',0.01, ...
+ 'computeWorkspace',true,'computeFK',true);
+names = fieldnames(defaults);
+for k=1:numel(names)
+ if ~isfield(p,names{k}), p.(names{k})=defaults.(names{k}); end
+end
+if ~isfield(p,'pSupply')
+ if isfield(p,'regulatorPressure'), p.pSupply=p.regulatorPressure;
+ else, p.pSupply=0.45e6; end
+end
+if ~isfield(p,'regulatorPressure'), p.regulatorPressure=p.pSupply; end
+% Either spelling can be edited after validation; reject ambiguous edits.
+if ~isequal(p.pSupply,p.regulatorPressure)
+ if isfield(p,'regulatorLastSyncedPressure') && ...
+    isequal(p.regulatorPressure,p.regulatorLastSyncedPressure)
+  p.regulatorPressure=p.pSupply;
+ elseif isfield(p,'regulatorLastSyncedPressure') && ...
+    isequal(p.pSupply,p.regulatorLastSyncedPressure)
+  p.pSupply=p.regulatorPressure;
+ else
+  error('ghe3:regulator','Set pSupply and regulatorPressure equal; conflicting edits are ambiguous.');
+ end
+end
+p.regulatorLastSyncedPressure=p.pSupply;
+end

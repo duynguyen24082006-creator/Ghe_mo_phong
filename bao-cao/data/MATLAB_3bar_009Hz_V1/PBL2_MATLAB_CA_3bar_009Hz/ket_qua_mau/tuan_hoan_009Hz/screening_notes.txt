@@ -1,0 +1,50 @@
+3-RPS: bottom R axes tangent to base circle; upper spherical joints.
+Tangential R-axis orientation is assumed and requires drawing confirmation.
+SCREENING INCOMPLETE: rod buckling not assessed; other critical checks remain
+Rod 1: NOT ASSESSED: Euler outside slender-rod applicability
+Rod 2: NOT ASSESSED: Euler outside slender-rod applicability
+Rod 3: NOT ASSESSED: Euler outside slender-rod applicability
+
+NOT ASSESSED:
+- Actual joint-axis alignment and distribution of constraint loads
+- Cylinder manufacturer side-load and rod/tube/piston guide-bearing capacities
+- Manufacturer force, pressure, side-load and speed ratings
+- Global three-dimensional frame, joints, welds and foundations
+- Fatigue life and stress concentration
+- Pneumatic compressibility, valve flow and pressure transients
+- Failure of supply, hose or valve; mechanical restraints and emergency stop
+- Actual trapped chamber pressures in closed center, meter-out pressure control during load-driven motion and on/off-valve position tracking
+
+NOTES:
+- 3-RPS transverse constraint reactions are included in pin resultants and a conservative exposed-rod bending screen. The actual rod/tube/piston-bearing load distribution and manufacturer side-load limits have NOT been assessed.
+- Time-synchronous available-pressure envelope includes receiver depletion and valve loss at the requested flow, including a potential-pressure check during delayed or closed branches. At zero reference velocity an ideal static pressure envelope is used without moving-friction or efficiency penalties. Trapped chamber pressures, static seal friction, load-driven exhaust control and actual on/off-valve trajectory tracking are NOT assessed. A closed center has zero modeled supply flow, not a certified mechanical lock.
+- Time-envelope axial + eccentric bending + transverse end-load cantilever bending on the full exposed rod; first-order only. Actual cylinder side-load/guide-bearing capacity is NOT validated.
+- Euler is an ideal elastic column screen. The fy-based slenderness boundary is approximate; verify proportional limit, end fixity, manufacturer buckling data and inelastic/second-order behavior separately.
+- Uses joint resultant sqrt(axial^2 + transverse^2). Uniform pure shear and projected bearing only; verify unequal plate loading, pin bending, axial pin thrust, lug net section, edge tear-out and joint ratings.
+- Ideal closed-end wall at supply gauge pressure only; check pressure peaks, caps, threads, seals, ports and certified maker pressure rating. Any example rating must be replaced by the actual manufacturer rating.
+- Illustrative beam bending only. No pass claim for the whole frame; real support positions, eccentric loads, torsion, welds, local buckling and deflection limits require a structural model.
+- Some rods are outside Euler applicability: buckling has NOT been assessed; use an appropriate inelastic method or maker data.
+Flow is atmospheric-equivalent L/min at equal temperatures, not automatically normal litres at a different reference temperature.
+
+5/3 CLOSED-CENTER VALVE AND AIR SUPPLY:
+Average air consumption: 22.9527013279 L/min; minimum tank gauge pressure: 728307.84591 Pa.
+Average requested air demand: 23.0195472232 L/min; low delivered flow alone is not evidence of feasibility.
+Air supply feasible within this numeric screen: 1.
+Averaging basis: last complete period; integrated reduced-order flow
+WARNING: valve delay/deadband prevents exact requested motion at some samples; do not interpret prescribed trajectory as achieved motion.
+Model scope: Prescribed-motion resource screen with a flow-only displacement proxy; no actual motion solved.
+- Prescribed trajectory screening: no solved chamber-pressure ODE, trapped-pressure hold, meter-out back-driving or actual closed-loop motion.
+- Valve rated flow, critical pressure ratio and 40 L/min FAD are assumed; replace by measured manufacturer data at the actual compressor discharge pressure.
+- Closed center consumes zero swept inlet flow. Pressure charging of dead volumes, hose filling, valve exhaust losses and leakage are not included.
+- Air feasibility uses nominal demand and a conservative shadow receiver; low delivered flow from delay/starvation is not credited as a feasible motion.
+- Some requested travel is unserved in the flow-only diagnostic; a within-tolerance resource screen is not an achieved trajectory.
+Closed center shuts the modeled valve ports; it does not establish a rigid mechanical position lock or verified trapped-pressure load holding.
+Reservoir mass balance and available-pressure checks do not integrate the full coupled valve/chamber/seat motion dynamics.
+Validate valve flow curves, regulator loss, compressor FAD/duty, chamber charging, leakage and exhaust behavior before final equipment selection.
+Workspace is a sampled geometric grid, not a certified continuous envelope.
+Trajectory is an offline periodic benchmark with no start/stop ramp.
+Actual motion solved: 0. trajectory_achieved=NaN means NOT ASSESSED.
+L/v/F histories are REQUIRED motion/force, not achieved motion or measured force.
+Flow proxy integrates accepted inlet inventory; it omits force/chamber dynamics and is not an actual position prediction.
+Required demand includes nonzero velocities inside the valve deadband.
+Maximum flow-only position-error proxy: 0.000671437512444 m.

@@ -1,0 +1,3 @@
+PASS: 31 test groups, including 200 random IK-FK poses, independent statics/energy, derivatives, invalid inputs and pressure failure.
+PASS: geometry separation, 3.506deg identity, assembly angles, Jacobian and invalid input checks.
+error: ignoring const execution_exception& while preparing to exit

@@ -1,0 +1,5 @@
+Reference parameters: rb 0.420 m, rp 0.360 m, h0 0.979163418 m.
+    functionGroupsPassed = 9
+    SimulinkCompiled = 0
+    hardwareValidated = 0
+error: ignoring const execution_exception& while preparing to exit
